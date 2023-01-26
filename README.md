@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Project Prep 1 - Team Agreement
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Group Members - Dominick Martin, Melanie Johnston, Jordan Covington, Marcus Bynoe, Tyler Bennett
 
-## Available Scripts
+Describe at least:
 
-In the project directory, you can run:
+What are the key strengths of each person on the team? Tyler - React, Mel - CSS, Jordan - Javascript, Marcus - React, Dominick - React.
+How can you best utilize these strengths in the execution of your project? We are a well rounded team, so by communicating when we are stuck we should be able to find a way around any obstacles.
 
-### `npm start`
+In which professional competencies do you each want to develop greater strength? Jordan - Communication Tyler - Adaptability Dominick - Handling Ambiguity Mel - Ambition and Initiative Marcus - Mentorship
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Knowing that every person in your team needs to understand all aspects of the project, how do you plan to approach the day-to-day work? During each morning's standup we will need to talk about what needs to happen that day to keep ourselves on schedule for Presentation day. During this time we will need to assign tasks and that is the perfect time to talk about where everyone is at and what they think of the project so far.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+What will be your group’s process to resolve conflict, when it arises? Being that we are a team with an odd number of people we should be able to handle things democratically. However, for any exceptions we will raise the issue to our instructor team to resolve it without tempers flaring.
 
-### `npm test`
+What will your team do if one person is taking over the project and not letting the other members contribute? To ensure nobody is taking over we will address the workload for the day during standup. If anyone goes off script we will first bring it up amongst the group before elevating it to the instructor team.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+How will you approach each other and the challenges of the project knowing that it is impossible for all members to be at the exact same place in understanding and skill level? We are all here to learn, and are planning on a lot of cooperation to get this project done on time. Part of cooperating is knowing we all have strengths and weaknesses and knowing whent to ask for help.
 
-### `npm run build`
+How will you raise concerns to members who are not adequately contributing? If somebody is not contributing to their or the team's liking we will first try having them be a Driver in pair programming situations.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+How and when will you escalate the conflict if your resolution attempts are unsuccessful? Luckily we have an instructor team to rely on in the off chance we cannot resolve our disputes internally.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Prep 2
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Project 1
 
-### `npm run eject`
+1. Trip Planner / Cost Comparison Tool
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Planning a trip around costs can get quite difficult because there are so many costs to factor in. Rather than building an excel sheet for each trip we want build a tool that will pull in your route, vehicle information, gas prices and potentially other information like hotels to build a rough estimate of costs for the user.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. MVP for this project would be to show the user's route and display a rough estimate of fuel costs. For CRUD functionality we would store each planned trip and allow the user to create multiple so they can compare, update theirs to reflect their desired costs, or delete so they can start over entirely.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Project 2
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Spotify Playlist Builder
 
-## Learn More
+2. Use Spotify's API to generate a playlist based on user input such as other artists/bands they like, genres they prefer or any of the other categories supported by Spotify's API. In addition to helping user's find music we could potentially embed the Spotify player to allow users to listen to their playlist without leaving our site which isn't always possible on Music curation sites, like Pitchfork.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. MVP for this project would be building a playlist, showing it to the user, and allowing them to manipulate it. CRUD functionality would be the ability to Create a playlist, remove or add songs to update it, or delete the playlist entirely.
