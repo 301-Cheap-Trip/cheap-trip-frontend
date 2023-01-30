@@ -38,3 +38,10 @@ How and when will you escalate the conflict if your resolution attempts are unsu
 2. Use Spotify's API to generate a playlist based on user input such as other artists/bands they like, genres they prefer or any of the other categories supported by Spotify's API. In addition to helping user's find music we could potentially embed the Spotify player to allow users to listen to their playlist without leaving our site which isn't always possible on Music curation sites, like Pitchfork.
 
 3. MVP for this project would be building a playlist, showing it to the user, and allowing them to manipulate it. CRUD functionality would be the ability to Create a playlist, remove or add songs to update it, or delete the playlist entirely.
+
+
+## Project Prep 4
+
+- [WireFrame](./img/WireFrame.PNG)
+- [Domain Modeling](./img/Domain%20Modeling.PNG)
+- [Schema](./img/Schema.PNG)
