@@ -1,9 +1,11 @@
 import React from "react";
 import './NewTripForm.css';
+import NewTripModal from "../NewTripModal/NewTripModal";
 
 class NewTripForm extends React.Component {
   render() {
     return (
+      <div className="NewTripForm">
       <form onSubmit={this.props.handleSubmit} >
         <h2>New Trip Form</h2>
         <label htmlFor="trip-origin">Trip Origin</label>
@@ -16,6 +18,13 @@ class NewTripForm extends React.Component {
         <input type='text' id='trip-origin' placeholder='Mileage in miles per galon' defaultValue={25} name='gasMileage' required />
         <button>Calculate Trip</button>
       </form>
+      <NewTripModal 
+      show={this.props.receivedTripInfo} 
+      onHide = 'Needs function that changes state - receivedTripInfo: false'
+      closeNewTripModal={this.props.closeNewTripModal}
+       />
+      </div>
+
     )
   }
 }

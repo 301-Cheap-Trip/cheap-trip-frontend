@@ -12,17 +12,34 @@ class App extends React.Component {
     this.state = {
       currentTrip: {},
       tripList: [],
-      userInformation: {}
+      userInformation: {},
+      gasPrice: 3.505,
+      receivedTripInfo: false
     }
+  }
+
+  closeNewTripModal = () => {
+    this.setState({receivedTripInfo: false})
   }
 
   handleSubmit = async (event) => {
     event.preventDefault();
-  
+    const currentTrip = {
+      tripOrigin: event.target.tripOrigin.value,
+      tripDestination: event.target.tripDestination.value,
+      gasMileage: event.target.gasMileage.value
+    }
     try {
       let url = `${process.env.REACT_APP_SERVER}/directions?cityOne=${event.target.tripOrigin.value}&cityTwo=${event.target.tripDestination.value}`;
       let response = await axios.get(url);
       console.log(response.data.routes[0].distance);
+      currentTrip.distance = response.data.routes[0].distance;
+      currentTrip.duration = response.data.routes[0].duration;
+      this.setState({
+        currentTrip: currentTrip,
+        tripList: [...this.state.tripList, currentTrip],
+        receivedTripInfo: true
+      })
     } catch (error) {
       console.log(error);
     }
@@ -36,7 +53,10 @@ class App extends React.Component {
         <div className='App' >
           <Routes>
             <Route exact path='/' element={<NewTripForm
-              handleSubmit={this.handleSubmit} />} />
+              handleSubmit={this.handleSubmit}
+              currentTrip={this.state.currentTrip}
+              receivedTripInfo={this.state.receivedTripInfo}
+              closeNewTripModal={this.closeNewTripModal} />} />
             <Route exact path='/about' element={<Profile/>} />
           </Routes>
         </div>

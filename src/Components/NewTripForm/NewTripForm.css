@@ -1,3 +1,7 @@
+.NewTripForm {
+  background-color: #222;
+}
+
 form {
   display: flex;
   flex-direction: column;
