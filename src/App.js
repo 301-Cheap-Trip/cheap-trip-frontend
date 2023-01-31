@@ -56,7 +56,8 @@ class App extends React.Component {
               handleSubmit={this.handleSubmit}
               currentTrip={this.state.currentTrip}
               receivedTripInfo={this.state.receivedTripInfo}
-              closeNewTripModal={this.closeNewTripModal} />} />
+              closeNewTripModal={this.closeNewTripModal}
+              gasPrice={this.state.gasPrice} />} />
             <Route exact path='/about' element={<Profile/>} />
           </Routes>
         </div>

@@ -22,6 +22,8 @@ class NewTripForm extends React.Component {
       show={this.props.receivedTripInfo} 
       onHide = 'Needs function that changes state - receivedTripInfo: false'
       closeNewTripModal={this.props.closeNewTripModal}
+      currentTrip={this.props.currentTrip}
+      gasPrice={this.props.gasPrice}
        />
       </div>
 
