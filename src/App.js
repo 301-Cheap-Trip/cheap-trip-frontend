@@ -32,9 +32,9 @@ class App extends React.Component {
     try {
       let url = `${process.env.REACT_APP_SERVER}/directions?cityOne=${event.target.tripOrigin.value}&cityTwo=${event.target.tripDestination.value}`;
       let response = await axios.get(url);
-      console.log(response.data.routes[0].distance);
-      currentTrip.distance = response.data.routes[0].distance;
-      currentTrip.duration = response.data.routes[0].duration;
+      console.log(response.data);
+      currentTrip.distance = response.data.distance;
+      currentTrip.duration = response.data.duration;
       this.setState({
         currentTrip: currentTrip,
         tripList: [...this.state.tripList, currentTrip],
