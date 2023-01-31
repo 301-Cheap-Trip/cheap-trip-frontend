@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import NewTripForm from './Components/NewTripForm/NewTripForm';
 import NavBar from './Components/NavBar/NavBar';
+import Profile from './Components/About/About';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -44,7 +45,7 @@ class App extends React.Component {
           <Routes>
             <Route exact path='/' element={<NewTripForm
               handleSubmit={this.handleSubmit} />} />
-
+            <Route exact path='/about' element={<Profile/>} />
           </Routes>
         </div>
       </Router >

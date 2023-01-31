@@ -1,6 +1,9 @@
 import { Component } from "react";
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import dominickPhoto from './img/DominickMartin.jpeg';
+import melPhoto from './img/melJohnston.jpg';
+import tylerPhoto from './img/tylerBennett.jpg';
 
 class Profile extends Component {
 
@@ -10,14 +13,12 @@ class Profile extends Component {
 
   render() {
     return (
-      <div>
-        <Link to='about'>About Us</Link>
-      </div>,
-
-      //*******Dominick Martin 1/5
+      
+<div>
+      {/* //*******Dominick Martin 1/5 */}
 
       <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="img/Dominick Martin.jpeg" />
+        <Card.Img variant="top" src={dominickPhoto} />
         <Card.Body>
           <Card.Title>Dominick Martin</Card.Title>
           <Card.Text>
@@ -34,14 +35,14 @@ class Profile extends Component {
           <Card.Link href="https://www.linkedin.com/in/dominickmartin/">Linkedin Page</Card.Link>
         </Card.Body>
       </Card>
-      ,
+      
 
 
 
-      //*******Melanie Johnston 2/5
+      {/* //*******Melanie Johnston 2/5 */}
 
       <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+        <Card.Img variant="top" src={melPhoto} />
         <Card.Body>
           <Card.Title>Melanie Johnston</Card.Title>
           <Card.Text>
@@ -58,10 +59,10 @@ class Profile extends Component {
           <Card.Link href="#">Here Goes GitHub Page</Card.Link>
         </Card.Body>
       </Card>
-      ,
+      
 
 
-      //******* Jordan Covington 3/5
+      {/* //******* Jordan Covington 3/5 */}
 
       <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
@@ -82,18 +83,18 @@ class Profile extends Component {
         </Card.Body>
       </Card>
 
-      ,
+      
 
 
 
-      //******* Marcus Bynoe 4/5
+      {/* //******* Marcus Bynoe 4/5 */}
 
       <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
         <Card.Body>
           <Card.Title>Marcus Bynoe</Card.Title>
           <Card.Text>
-            Jordan Covington: Id veniam dolor incididunt culpa velit excepteur proident minim cupidatat. Cillum proident quis est cillum cillum fugiat proident nisi officia voluptate quis laboris. Nostrud nostrud cillum dolor fugiat ea do occaecat ex adipisicing ex incididunt excepteur. Eiusmod excepteur cupidatat aute eiusmod minim sit. Irure occaecat amet fugiat aliqua do. Deserunt dolor dolor officia in minim labore sunt et sunt consectetur mollit ut.
+            Marcus Bynoe: Id veniam dolor incididunt culpa velit excepteur proident minim cupidatat. Cillum proident quis est cillum cillum fugiat proident nisi officia voluptate quis laboris. Nostrud nostrud cillum dolor fugiat ea do occaecat ex adipisicing ex incididunt excepteur. Eiusmod excepteur cupidatat aute eiusmod minim sit. Irure occaecat amet fugiat aliqua do. Deserunt dolor dolor officia in minim labore sunt et sunt consectetur mollit ut.
           </Card.Text>
           {/* </Card.Body>
      <ListGroup className="list-group-flush">
@@ -107,16 +108,16 @@ class Profile extends Component {
         </Card.Body>
       </Card>
 
-      ,
+      
 
-      //******* Tyler Bennett 5/5
+      {/* //******* Tyler Bennett 5/5 */}
 
       <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+        <Card.Img variant="top" src={tylerPhoto} />
         <Card.Body>
           <Card.Title>Tyler Bennett</Card.Title>
           <Card.Text>
-            Jordan Covington: Id veniam dolor incididunt culpa velit excepteur proident minim cupidatat. Cillum proident quis est cillum cillum fugiat proident nisi officia voluptate quis laboris. Nostrud nostrud cillum dolor fugiat ea do occaecat ex adipisicing ex incididunt excepteur. Eiusmod excepteur cupidatat aute eiusmod minim sit. Irure occaecat amet fugiat aliqua do. Deserunt dolor dolor officia in minim labore sunt et sunt consectetur mollit ut.
+            Tyler Bennett: Id veniam dolor incididunt culpa velit excepteur proident minim cupidatat. Cillum proident quis est cillum cillum fugiat proident nisi officia voluptate quis laboris. Nostrud nostrud cillum dolor fugiat ea do occaecat ex adipisicing ex incididunt excepteur. Eiusmod excepteur cupidatat aute eiusmod minim sit. Irure occaecat amet fugiat aliqua do. Deserunt dolor dolor officia in minim labore sunt et sunt consectetur mollit ut.
           </Card.Text>
           {/* </Card.Body>
 <ListGroup className="list-group-flush">
@@ -131,7 +132,7 @@ class Profile extends Component {
       </Card>
 
 
-
+      </div>
 
 
 
@@ -141,15 +142,5 @@ class Profile extends Component {
 }
 
 export default Profile;
-
-
-
-
-//  return
-
-
-// }
-// };
-
 
 
