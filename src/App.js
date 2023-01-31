@@ -1,25 +1,54 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import NewTripForm from './Components/NewTripForm/NewTripForm';
+import NavBar from './Components/NavBar/NavBar';
+import axios from 'axios';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      currentTrip: {},
+      tripList: [],
+      userInformation: {}
+    }
+  }
+
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    this.setState({
+      currentTrip: {
+        tripOrigin: `event.target.tripOrigin.value`,
+        tripDestination: event.target.tripDestination.value,
+        gasMileage: event.target.gasMileage.value
+      }
+    })
+    console.log(event.target.tripOrigin.value);
+    console.log(this.state);
+    try {
+      let url = `${process.env.REACT_APP_SERVER}`;
+      let response = await axios.get(url);
+      alert(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+
+  render() {
+    return (
+      <Router>
+        <NavBar/>
+        <div className='App' >
+          <Routes>
+            <Route exact path='/' element={<NewTripForm
+              handleSubmit={this.handleSubmit} />} />
+
+          </Routes>
+        </div>
+      </Router >
+    )
+  }
 }
-
 export default App;
