@@ -45,3 +45,7 @@ How and when will you escalate the conflict if your resolution attempts are unsu
 - [WireFrame](./img/WireFrame.PNG)
 - [Domain Modeling](./img/Domain%20Modeling.PNG)
 - [Schema](./img/Schema.PNG)
+
+
+Attribution - 
+State Select options provided by https://www.freeformatter.com/usa-state-list-html-select.html

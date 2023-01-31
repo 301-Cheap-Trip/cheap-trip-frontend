@@ -1,0 +1,28 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 10%;
+  border: 2px cadetblue solid;
+  gap: 8px;
+  padding: 3px;
+  padding-bottom: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+form input{
+  width: 70%;
+  margin-bottom: 5px;
+}
+
+button {
+  padding: .25em 1em;
+  margin-top: 15px;
+}
+
+h2 {
+  margin: 5px;
+  font-size: 2rem;
+}
