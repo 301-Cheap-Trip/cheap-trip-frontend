@@ -1,0 +1,8 @@
+.SavedTripsPage {
+  display: flex;
+  flex-direction: wrap;
+  flex-wrap: wrap;
+  gap:2em;
+  justify-content: center;
+  margin-top: 15px;
+}

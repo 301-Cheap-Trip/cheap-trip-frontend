@@ -3,6 +3,7 @@ import './App.css';
 import NewTripForm from './Components/NewTripForm/NewTripForm';
 import NavBar from './Components/NavBar/NavBar';
 import Profile from './Components/About/About';
+import SavedTripsPage from './Components/SavedTripsPage/SavedTripsPage';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -11,7 +12,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       currentTrip: {},
-      tripList: [],
+      tripList: [1, 2, 3, 4],
       userInformation: {},
       gasPrice: 3.505,
       receivedTripInfo: false
@@ -69,6 +70,7 @@ class App extends React.Component {
               closeNewTripModal={this.closeNewTripModal}
               gasPrice={this.state.gasPrice} />} />
             <Route exact path='/about' element={<Profile/>} />
+            <Route exact path='/saved-trips' element={<SavedTripsPage tripList={this.state.tripList}/>} />
           </Routes>
         </div>
       </Router >
