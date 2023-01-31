@@ -18,19 +18,11 @@ class App extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    this.setState({
-      currentTrip: {
-        tripOrigin: `event.target.tripOrigin.value`,
-        tripDestination: event.target.tripDestination.value,
-        gasMileage: event.target.gasMileage.value
-      }
-    })
-    console.log(event.target.tripOrigin.value);
-    console.log(this.state);
+  
     try {
-      let url = `${process.env.REACT_APP_SERVER}`;
+      let url = `${process.env.REACT_APP_SERVER}/directions?cityOne=${event.target.tripOrigin.value}&cityTwo=${event.target.tripDestination.value}`;
       let response = await axios.get(url);
-      alert(response.data);
+      console.log(response.data.routes[0].distance);
     } catch (error) {
       console.log(error);
     }
