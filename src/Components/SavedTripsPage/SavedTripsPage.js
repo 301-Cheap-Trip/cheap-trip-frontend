@@ -8,7 +8,7 @@ class SavedTripsPage extends React.Component {
       <div className="SavedTripsPage">
         {this.props.tripList.map(trip => {
           return (
-            <SavedTrip/>
+            <SavedTrip trip = {trip} key={trip._id} handleDelete={this.props.handleDelete}/>
           )
         })}
       </div>

@@ -19,8 +19,35 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.getTrips();
+  }
+
   closeNewTripModal = () => {
     this.setState({receivedTripInfo: false})
+  }
+
+  getTrips = async () => {
+    try {
+      const tripsFromDatabase = await axios.get(`${process.env.REACT_APP_SERVER}/trips`);
+      this.setState({tripList: tripsFromDatabase.data});
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  handleDelete = async (id) => {
+  try {
+    let url = `${process.env.REACT_APP_SERVER}/trips/${id}`
+    console.log(url);
+    let deleteConfirmation = await axios.delete(url)
+    console.log(deleteConfirmation)
+  } catch (error) {
+    console.log(error);
+  }
+  const unfilteredTrips = this.state.tripList;
+  const filteredTrips = unfilteredTrips.filter(trip => trip._id !== id);
+  this.setState({tripList: filteredTrips})
   }
 
   handleSubmit = async (event) => {
@@ -48,8 +75,11 @@ class App extends React.Component {
 
   handleSaveTrip = async () => {
    const tripList = [...this.state.tripList, this.state.currentTrip];
+   let requestBody = this.state.currentTrip;
+   requestBody.gasPrice = this.state.gasPrice;
+   requestBody.username = 'HankHill';
    try {
-     let response = await axios.post(`${process.env.REACT_APP_SERVER}/trips`, this.state.currentTrip);
+     let response = await axios.post(`${process.env.REACT_APP_SERVER}/trips`, requestBody);
      console.log(response.data);
      this.setState({tripList: tripList})
    } catch (error) {
@@ -68,9 +98,10 @@ class App extends React.Component {
               currentTrip={this.state.currentTrip}
               receivedTripInfo={this.state.receivedTripInfo}
               closeNewTripModal={this.closeNewTripModal}
-              gasPrice={this.state.gasPrice} />} />
+              gasPrice={this.state.gasPrice}
+              handleSaveTrip={this.handleSaveTrip} />} />
             <Route exact path='/about' element={<Profile/>} />
-            <Route exact path='/saved-trips' element={<SavedTripsPage tripList={this.state.tripList}/>} />
+            <Route exact path='/saved-trips' element={<SavedTripsPage tripList={this.state.tripList} handleDelete={this.handleDelete}/>} />
           </Routes>
         </div>
       </Router >

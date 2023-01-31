@@ -24,6 +24,7 @@ class NewTripForm extends React.Component {
       closeNewTripModal={this.props.closeNewTripModal}
       currentTrip={this.props.currentTrip}
       gasPrice={this.props.gasPrice}
+      handleSaveTrip={this.props.handleSaveTrip}
        />
       </div>
 
