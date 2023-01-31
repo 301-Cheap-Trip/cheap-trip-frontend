@@ -37,13 +37,23 @@ class App extends React.Component {
       currentTrip.duration = response.data.duration;
       this.setState({
         currentTrip: currentTrip,
-        tripList: [...this.state.tripList, currentTrip],
         receivedTripInfo: true
       })
     } catch (error) {
       console.log(error);
     }
+  
+  }
 
+  handleSaveTrip = async () => {
+   const tripList = [...this.state.tripList, this.state.currentTrip];
+   try {
+     let response = await axios.post(`${process.env.REACT_APP_SERVER}/trips`, this.state.currentTrip);
+     console.log(response.data);
+     this.setState({tripList: tripList})
+   } catch (error) {
+    console.log(error)
+   }
   }
 
   render() {
