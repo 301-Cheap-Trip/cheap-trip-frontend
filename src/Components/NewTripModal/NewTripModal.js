@@ -37,7 +37,7 @@ class NewTripModal extends React.Component {
         </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={this.props.closeNewTripModal}>Close</Button>
-          <Button variant='success' onClick={this.props.closeNewTripModal}>Save this Trip</Button>
+          <Button variant='success' onClick={this.props.handleSaveTrip}>Save this Trip</Button>
         </Modal.Footer>
       </Modal>
     );
