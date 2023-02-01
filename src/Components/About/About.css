@@ -1,0 +1,17 @@
+.profile-cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem;
+  justify-content: space-around;
+  gap: 1rem;
+  color: #010101;
+}
+
+.card {
+  margin-top: 2rem;
+  border: none;
+}
+
+.card-text {
+  line-height: 1.2;
+}
