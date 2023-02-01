@@ -20,7 +20,9 @@ class SavedTripsPage extends React.Component {
         })}
         <UpdateTripModal 
         show={this.props.showUpdateModal} 
-        closeUpdateModal={this.props.closeUpdateModal}/>
+        closeUpdateModal={this.props.closeUpdateModal}
+        handleUpdate={this.props.handleUpdate}
+        trip={this.props.updatingTrip}/>
       </div>
     )
   }

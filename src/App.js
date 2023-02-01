@@ -17,7 +17,8 @@ class App extends React.Component {
       gasPrice: 3.505,
       receivedTripInfo: false,
       showUpdateModal: false,
-      showViewModal: false
+      showViewModal: false,
+      updatingTrip: {}
     }
   }
 
@@ -51,16 +52,26 @@ class App extends React.Component {
     this.setState({ tripList: filteredTrips })
   }
 
-  handleUpdate = async (id, tripObj) => {
+  handleUpdate = async (event, id) => {
+    event.preventDefault();
+    console.log(id);
+    const tripObj = {
+      duration: (event.target.tripDuration.value * 60),
+      distance: (event.target.tripDistance.value * 1609.34),
+      tripOrigin: (event.target.tripOrigin.value),
+      tripDestination: (event.target.tripDestination.value),
+      gasPrice: (event.target.gasPrice.value),
+      gasMileage: (event.target.gasMileage.value)
+    }
     try {
-      let url = `${process.env.REACT_APP_SERVER}/trips/id`;
+      let url = `${process.env.REACT_APP_SERVER}/trips/${id}`;
       let updateResponse = await axios.put(url, tripObj);
       const oldTripList = this.state.tripList;
       const updatedTripList = oldTripList.map(trip => {
         if (trip._id !== id) {
           return trip;
-        } return updateResponse;
-      }); this.setState({ tripList: updatedTripList })
+        } return updateResponse.data;
+      }); this.setState({ tripList: updatedTripList, showUpdateModal: false })
     } catch (error) {
 
     }
@@ -105,6 +116,7 @@ class App extends React.Component {
 
   closeUpdateModal = () => {
     this.setState({showUpdateModal: false})
+    console.log(this.state.updatingTrip)
   }
 
   openUpdateModal = (tripObj) => {
@@ -132,6 +144,7 @@ class App extends React.Component {
               <SavedTripsPage
                 tripList={this.state.tripList}
                 handleDelete={this.handleDelete}
+                handleUpdate={this.handleUpdate}
                 closeUpdateModal={this.closeUpdateModal}
                 openUpdateModal={this.openUpdateModal}
                 showUpdateModal={this.state.showUpdateModal}
