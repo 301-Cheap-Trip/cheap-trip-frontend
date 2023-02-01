@@ -99,7 +99,7 @@ class App extends React.Component {
               receivedTripInfo={this.state.receivedTripInfo}
               closeNewTripModal={this.closeNewTripModal}
               gasPrice={this.state.gasPrice}
-              handleSaveTrip={this.handleSaveTrip} />}></Route>
+              handleSaveTrip={this.handleSaveTrip} />}> </Route>
             <Route exact path='/about' element={<Profile />}> </Route>
             <Route exact path='/saved-trips' element={<SavedTripsPage tripList={this.state.tripList} handleDelete={this.handleDelete} />}> </Route>
           </Routes>
