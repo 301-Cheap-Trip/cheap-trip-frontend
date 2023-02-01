@@ -19,7 +19,7 @@ class App extends React.Component {
   }
 
   closeNewTripModal = () => {
-    this.setState({receivedTripInfo: false})
+    this.setState({ receivedTripInfo: false })
   }
 
   handleSubmit = async (event) => {
@@ -42,24 +42,24 @@ class App extends React.Component {
     } catch (error) {
       console.log(error);
     }
-  
+
   }
 
   handleSaveTrip = async () => {
-   const tripList = [...this.state.tripList, this.state.currentTrip];
-   try {
-     let response = await axios.post(`${process.env.REACT_APP_SERVER}/trips`, this.state.currentTrip);
-     console.log(response.data);
-     this.setState({tripList: tripList})
-   } catch (error) {
-    console.log(error)
-   }
+    const tripList = [...this.state.tripList, this.state.currentTrip];
+    try {
+      let response = await axios.post(`${process.env.REACT_APP_SERVER}/trips`, this.state.currentTrip);
+      console.log(response.data);
+      this.setState({ tripList: tripList })
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   render() {
     return (
       <Router>
-        <NavBar/>
+        <NavBar />
         <div className='App' >
           <Routes>
             <Route exact path='/' element={<NewTripForm
@@ -67,8 +67,9 @@ class App extends React.Component {
               currentTrip={this.state.currentTrip}
               receivedTripInfo={this.state.receivedTripInfo}
               closeNewTripModal={this.closeNewTripModal}
-              gasPrice={this.state.gasPrice} />} />
-            <Route exact path='/about' element={<Profile/>} />
+              gasPrice={this.state.gasPrice} />}>
+            </Route>
+            <Route exact path='/about' element={<Profile />}></Route>
           </Routes>
         </div>
       </Router >
