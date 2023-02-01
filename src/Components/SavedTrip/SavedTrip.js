@@ -23,7 +23,7 @@ class SavedTrip extends React.Component {
         <p>{this.props.trip._id}</p>
         <div className="button-group">
         <Button className="button" variant="info" >View</Button>
-        <Button className="button" variant="warning" >Edit</Button>
+        <Button onClick={() => this.props.openUpdateModal(this.props.trip)} className="button" variant="warning" >Edit</Button>
         <Button onClick={this.handleHandleDelete} className="button" variant="danger" >Delete</Button>
         </div>
       </div>

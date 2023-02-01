@@ -15,7 +15,9 @@ class App extends React.Component {
       tripList: [1, 2, 3, 4],
       userInformation: {},
       gasPrice: 3.505,
-      receivedTripInfo: false
+      receivedTripInfo: false,
+      showUpdateModal: false,
+      showViewModal: false
     }
   }
 
@@ -39,7 +41,6 @@ class App extends React.Component {
   handleDelete = async (id) => {
     try {
       let url = `${process.env.REACT_APP_SERVER}/trips/${id}`
-      console.log(url);
       let deleteConfirmation = await axios.delete(url)
       console.log(deleteConfirmation)
     } catch (error) {
@@ -48,6 +49,21 @@ class App extends React.Component {
     const unfilteredTrips = this.state.tripList;
     const filteredTrips = unfilteredTrips.filter(trip => trip._id !== id);
     this.setState({ tripList: filteredTrips })
+  }
+
+  handleUpdate = async (id, tripObj) => {
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/trips/id`;
+      let updateResponse = await axios.put(url, tripObj);
+      const oldTripList = this.state.tripList;
+      const updatedTripList = oldTripList.map(trip => {
+        if (trip._id !== id) {
+          return trip;
+        } return updateResponse;
+      }); this.setState({ tripList: updatedTripList })
+    } catch (error) {
+
+    }
   }
 
   handleSubmit = async (event) => {
@@ -87,6 +103,17 @@ class App extends React.Component {
     }
   }
 
+  closeUpdateModal = () => {
+    this.setState({showUpdateModal: false})
+  }
+
+  openUpdateModal = (tripObj) => {
+    this.setState({
+      showUpdateModal: true,
+      updatingTrip: tripObj
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -101,7 +128,15 @@ class App extends React.Component {
               gasPrice={this.state.gasPrice}
               handleSaveTrip={this.handleSaveTrip} />}> </Route>
             <Route exact path='/about' element={<Profile />}> </Route>
-            <Route exact path='/saved-trips' element={<SavedTripsPage tripList={this.state.tripList} handleDelete={this.handleDelete} />}> </Route>
+            <Route exact path='/saved-trips' element={
+              <SavedTripsPage
+                tripList={this.state.tripList}
+                handleDelete={this.handleDelete}
+                closeUpdateModal={this.closeUpdateModal}
+                openUpdateModal={this.openUpdateModal}
+                showUpdateModal={this.state.showUpdateModal}
+                updatingTrip={this.state.updatingTrip}
+              />}> </Route>
           </Routes>
         </div>
       </Router >
