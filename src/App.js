@@ -81,11 +81,19 @@ class App extends React.Component {
     event.preventDefault();
     const currentTrip = {
       tripOrigin: event.target.tripOrigin.value,
+      tripOriginState: event.target.tripOriginState.value,
       tripDestination: event.target.tripDestination.value,
+      tripDestinationState: event.target.tripDestinationState.value,
       gasMileage: event.target.gasMileage.value
+
     }
     try {
-      let url = `${process.env.REACT_APP_SERVER}/directions?cityOne=${event.target.tripOrigin.value}&cityTwo=${event.target.tripDestination.value}`;
+
+      console.log('Origin>>>', event.target.tripOriginState.value)
+      console.log('Dest>>>', event.target.tripDestinationState.value)
+      let url = `${process.env.REACT_APP_SERVER}/directions?cityOne=${event.target.tripOrigin.value}&stateOne=${event.target.tripOriginState.value}&stateTwo=${event.target.tripDestinationState.value}&cityTwo=${event.target.tripDestination.value}`;
+
+      console.log(url)
       let response = await axios.get(url);
       console.log(response.data);
       currentTrip.distance = response.data.distance;
