@@ -3,6 +3,7 @@ import Login from '../Auth/Login';
 import Logout from '../Auth/Logout';
 import Profile from '../Auth/Profile';
 import { withAuth0 } from "@auth0/auth0-react";
+import { Link } from 'react-router-dom';
 import './NavBar.css';
 
 class NavBar extends React.Component {
@@ -11,9 +12,9 @@ class NavBar extends React.Component {
       <div className="NavBar">
         <h1>CHEAP TRIP</h1>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/saved-trips">Saved Trips</a></li>
-          <li><a href="/about">About</a></li>
+          <li><Link to="/" className="nav-link">Home</Link></li>
+          <li><Link to="/saved-trips" className="nav-link">Saved Trips</Link></li>
+          <li><Link to="/about" className="nav-link">About</Link></li>
           {
           this.props.auth0.isAuthenticated ?
             <>
