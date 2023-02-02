@@ -24,7 +24,7 @@ class NewTripModal extends React.Component {
       >
         <Modal.Header >
           <Modal.Title style={{ alignText: 'center', margin: '0 auto' }} id="contained-modal-title-vcenter">
-            {this.props.currentTrip.tripOrigin},{this.props.currentTrip.tripOriginState} - {this.props.currentTrip.tripDestination},{this.props.currentTrip.tripDestinationState}
+            {this.props.currentTrip.tripOrigin}, {this.props.currentTrip.tripOriginState} - {this.props.currentTrip.tripDestination}, {this.props.currentTrip.tripDestinationState}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className='show-grid'>
