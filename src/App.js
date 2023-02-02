@@ -7,6 +7,7 @@ import SavedTripsPage from './Components/SavedTripsPage/SavedTripsPage';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { withAuth0 } from "@auth0/auth0-react";
+const gasData = require('./Gas Price.json');
 
 class App extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getTrips();
-    console.log(process.env.REACT_APP_LOCATIONIQ_API_KEY)
+    // console.log(process.env.REACT_APP_LOCATIONIQ_API_KEY)
   }
 
   closeNewTripModal = () => {
@@ -39,7 +40,9 @@ class App extends React.Component {
     if (this.props.auth0.isAuthenticated) {
       const authResponse = await this.props.auth0.getIdTokenClaims();
       const jwt = authResponse.__raw;
-      console.log('token: ', jwt);
+
+      // console.log('token: ', jwt);
+
       const config = {
         headers: { "Authorization": `Bearer ${jwt}` },
         method: 'get',
@@ -57,7 +60,7 @@ class App extends React.Component {
       if (this.props.auth0.isAuthenticated) {
         const authResponse = await this.props.auth0.getIdTokenClaims();
         const jwt = authResponse.__raw;
-        console.log('token: ', jwt);
+        // console.log('token: ', jwt);
         const config = {
           headers: { "Authorization": `Bearer ${jwt}` },
           method: 'delete',
@@ -77,7 +80,7 @@ class App extends React.Component {
 
   handleUpdate = async (event, id) => {
     event.preventDefault();
-    console.log(id);
+    // console.log(id);
     const tripObj = {
       duration: (event.target.tripDuration.value * 60),
       distance: (event.target.tripDistance.value * 1609.34),
@@ -90,7 +93,7 @@ class App extends React.Component {
       if (this.props.auth0.isAuthenticated) {
         const authResponse = await this.props.auth0.getIdTokenClaims();
         const jwt = authResponse.__raw;
-        console.log('token: ', jwt);
+        // console.log('token: ', jwt);
         const config = {
           headers: { "Authorization": `Bearer ${jwt}` },
           method: 'put',
@@ -114,33 +117,46 @@ class App extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
 
+
+    
     const currentTrip = {
       tripOrigin: event.target.tripOrigin.value,
       tripOriginState: event.target.tripOriginState.value,
       tripDestination: event.target.tripDestination.value,
       tripDestinationState: event.target.tripDestinationState.value,
       gasMileage: event.target.gasMileage.value
-
+      
+      
     }
+    const gasPriceOrigin = gasData.filter(e => e.stAbr === currentTrip.tripOriginState)[0].regular
+    const gasPriceDest = gasData.filter(e => e.stAbr === currentTrip.tripDestinationState)[0].regular
+    const averageGasPrice = ((gasPriceDest+gasPriceOrigin)/2).toFixed(2);
+    currentTrip.gasPrice = averageGasPrice
+   
     try {
 
       if (this.props.auth0.isAuthenticated) {
         const authResponse = await this.props.auth0.getIdTokenClaims();
+
         const jwt = authResponse.__raw;
-        console.log('token: ', jwt);
+        // console.log('token: ', jwt);
         const config = {
           headers: { "Authorization": `Bearer ${jwt}` },
           method: 'get',
           baseURL: process.env.REACT_APP_SERVER,
           url: `/directions?cityOne=${event.target.tripOrigin.value}&stateOne=${event.target.tripOriginState.value}&stateTwo=${event.target.tripDestinationState.value}&cityTwo=${event.target.tripDestination.value}`
         }
+        console.log(config.url)
         let response = await axios(config);
-        console.log(response.data);
+
+
         const tripWithLatLongs = { ...currentTrip, ...response.data, imageURL: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${response.data.centerLat},${response.data.centerLon}&size=600x600&zoom=18&markers=icon:small-orange-cutout%7C${response.data.originLat},${response.data.originLon}%7C${response.data.destLat},${response.data.destLon}` }
-        console.log(tripWithLatLongs)
+
+
         this.setState({
           currentTrip: tripWithLatLongs,
-          receivedTripInfo: true
+          receivedTripInfo: true,
+          gasPrice: averageGasPrice
         })
       }
 
@@ -158,7 +174,7 @@ class App extends React.Component {
       if (this.props.auth0.isAuthenticated) {
         const authResponse = await this.props.auth0.getIdTokenClaims();
         const jwt = authResponse.__raw;
-        console.log('token: ', jwt);
+        // console.log('token: ', jwt);
         const config = {
           headers: { "Authorization": `Bearer ${jwt}` },
           method: 'post',
@@ -175,9 +191,11 @@ class App extends React.Component {
     }
   }
 
+
+
   closeUpdateModal = () => {
     this.setState({ showUpdateModal: false })
-    console.log(this.state.updatingTrip)
+    // console.log(this.state.updatingTrip)
   }
 
   openUpdateModal = (tripObj) => {

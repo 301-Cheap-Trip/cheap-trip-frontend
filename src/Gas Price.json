@@ -1,0 +1,410 @@
+[
+ {
+   "stAbr": "AK",
+   "state": "Alaska",
+   "regular": 3.8,
+   "midGrade": 3.94,
+   "premium": 4.16,
+   "diesel": 4.61
+ },
+ {
+   "stAbr": "AL",
+   "state": "Alabama",
+   "regular": 3.27,
+   "midGrade": 3.66,
+   "premium": 4.02,
+   "diesel": 4.52
+ },
+ {
+   "stAbr": "AR",
+   "state": "Arkansas",
+   "regular": 3.17,
+   "midGrade": 3.52,
+   "premium": 3.87,
+   "diesel": 4.23
+ },
+ {
+   "stAbr": "AZ",
+   "state": "Arizona",
+   "regular": 3.53,
+   "midGrade": 3.81,
+   "premium": 4.1,
+   "diesel": 4.63
+ },
+ {
+   "stAbr": "CA",
+   "state": "California",
+   "regular": 4.57,
+   "midGrade": 4.76,
+   "premium": 4.91,
+   "diesel": 5.73
+ },
+ {
+   "stAbr": "CO",
+   "state": "Colorado",
+   "regular": 3.9,
+   "midGrade": 4.24,
+   "premium": 4.54,
+   "diesel": 4.79
+ },
+ {
+   "stAbr": "CT",
+   "state": "Connecticut",
+   "regular": 3.36,
+   "midGrade": 3.91,
+   "premium": 4.34,
+   "diesel": 5.02
+ },
+ {
+   "stAbr": "DC",
+   "state": "DistrictofColumbia",
+   "regular": 3.61,
+   "midGrade": 4.23,
+   "premium": 4.6,
+   "diesel": 4.98
+ },
+ {
+   "stAbr": "DE",
+   "state": "Delaware",
+   "regular": 3.43,
+   "midGrade": 3.89,
+   "premium": 4.17,
+   "diesel": 4.44
+ },
+ {
+   "stAbr": "FL",
+   "state": "Florida",
+   "regular": 3.53,
+   "midGrade": 3.92,
+   "premium": 4.23,
+   "diesel": 4.9
+ },
+ {
+   "stAbr": "GA",
+   "state": "Georgia",
+   "regular": 3.37,
+   "midGrade": 3.76,
+   "premium": 4.12,
+   "diesel": 4.68
+ },
+ {
+   "stAbr": "HI",
+   "state": "Hawaii",
+   "regular": 4.94,
+   "midGrade": 5.16,
+   "premium": 5.39,
+   "diesel": 6.04
+ },
+ {
+   "stAbr": "IA",
+   "state": "Iowa",
+   "regular": 3.35,
+   "midGrade": 3.58,
+   "premium": 4.07,
+   "diesel": 4.28
+ },
+ {
+   "stAbr": "ID",
+   "state": "Idaho",
+   "regular": 3.54,
+   "midGrade": 3.75,
+   "premium": 3.98,
+   "diesel": 4.69
+ },
+ {
+   "stAbr": "IL",
+   "state": "Illinois",
+   "regular": 3.66,
+   "midGrade": 4.11,
+   "premium": 4.56,
+   "diesel": 4.58
+ },
+ {
+   "stAbr": "IN",
+   "state": "Indiana",
+   "regular": 3.3,
+   "midGrade": 3.75,
+   "premium": 4.17,
+   "diesel": 4.74
+ },
+ {
+   "stAbr": "KS",
+   "state": "Kansas",
+   "regular": 3.2,
+   "midGrade": 3.48,
+   "premium": 3.8,
+   "diesel": 4.16
+ },
+ {
+   "stAbr": "KY",
+   "state": "Kentucky",
+   "regular": 3.18,
+   "midGrade": 3.61,
+   "premium": 3.99,
+   "diesel": 4.44
+ },
+ {
+   "stAbr": "LA",
+   "state": "Louisiana",
+   "regular": 3.23,
+   "midGrade": 3.6,
+   "premium": 3.96,
+   "diesel": 4.39
+ },
+ {
+   "stAbr": "MA",
+   "state": "Massachusetts",
+   "regular": 3.43,
+   "midGrade": 3.99,
+   "premium": 4.33,
+   "diesel": 5.09
+ },
+ {
+   "stAbr": "MD",
+   "state": "Maryland",
+   "regular": 3.49,
+   "midGrade": 4,
+   "premium": 4.27,
+   "diesel": 4.59
+ },
+ {
+   "stAbr": "ME",
+   "state": "Maine",
+   "regular": 3.51,
+   "midGrade": 3.89,
+   "premium": 4.27,
+   "diesel": 5.64
+ },
+ {
+   "stAbr": "MI",
+   "state": "Michigan",
+   "regular": 3.42,
+   "midGrade": 3.88,
+   "premium": 4.35,
+   "diesel": 4.67
+ },
+ {
+   "stAbr": "MN",
+   "state": "Minnesota",
+   "regular": 3.4,
+   "midGrade": 3.7,
+   "premium": 4.08,
+   "diesel": 4.39
+ },
+ {
+   "stAbr": "MO",
+   "state": "Missouri",
+   "regular": 3.17,
+   "midGrade": 3.45,
+   "premium": 3.76,
+   "diesel": 4.15
+ },
+ {
+   "stAbr": "MS",
+   "state": "Mississippi",
+   "regular": 3.16,
+   "midGrade": 3.52,
+   "premium": 3.87,
+   "diesel": 4.36
+ },
+ {
+   "stAbr": "MT",
+   "state": "Montana",
+   "regular": 3.25,
+   "midGrade": 3.52,
+   "premium": 3.82,
+   "diesel": 4.41
+ },
+ {
+   "stAbr": "NC",
+   "state": "NorthCarolina",
+   "regular": 3.33,
+   "midGrade": 3.71,
+   "premium": 4.06,
+   "diesel": 4.5
+ },
+ {
+   "stAbr": "ND",
+   "state": "NorthDakota",
+   "regular": 3.38,
+   "midGrade": 3.61,
+   "premium": 3.96,
+   "diesel": 4.56
+ },
+ {
+   "stAbr": "NE",
+   "state": "Nebraska",
+   "regular": 3.39,
+   "midGrade": 3.59,
+   "premium": 4.04,
+   "diesel": 4.27
+ },
+ {
+   "stAbr": "NH",
+   "state": "NewHampshire",
+   "regular": 3.39,
+   "midGrade": 3.84,
+   "premium": 4.23,
+   "diesel": 5.09
+ },
+ {
+   "stAbr": "NJ",
+   "state": "NewJersey",
+   "regular": 3.43,
+   "midGrade": 3.98,
+   "premium": 4.26,
+   "diesel": 4.78
+ },
+ {
+   "stAbr": "NM",
+   "state": "NewMexico",
+   "regular": 3.35,
+   "midGrade": 3.68,
+   "premium": 3.96,
+   "diesel": 4.43
+ },
+ {
+   "stAbr": "NV",
+   "state": "Nevada",
+   "regular": 3.99,
+   "midGrade": 4.22,
+   "premium": 4.46,
+   "diesel": 4.79
+ },
+ {
+   "stAbr": "NY",
+   "state": "NewYork",
+   "regular": 3.58,
+   "midGrade": 4.03,
+   "premium": 4.4,
+   "diesel": 5.28
+ },
+ {
+   "stAbr": "OH",
+   "state": "Ohio",
+   "regular": 3.42,
+   "midGrade": 3.85,
+   "premium": 4.26,
+   "diesel": 4.66
+ },
+ {
+   "stAbr": "OK",
+   "state": "Oklahoma",
+   "regular": 3.18,
+   "midGrade": 3.52,
+   "premium": 3.74,
+   "diesel": 4.02
+ },
+ {
+   "stAbr": "OR",
+   "state": "Oregon",
+   "regular": 3.78,
+   "midGrade": 3.97,
+   "premium": 4.18,
+   "diesel": 4.79
+ },
+ {
+   "stAbr": "PA",
+   "state": "Pennsylvania",
+   "regular": 3.78,
+   "midGrade": 4.17,
+   "premium": 4.47,
+   "diesel": 5.11
+ },
+ {
+   "stAbr": "RI",
+   "state": "RhodeIsland",
+   "regular": 3.42,
+   "midGrade": 4.01,
+   "premium": 4.34,
+   "diesel": 5.09
+ },
+ {
+   "stAbr": "SC",
+   "state": "SouthCarolina",
+   "regular": 3.23,
+   "midGrade": 3.6,
+   "premium": 3.95,
+   "diesel": 4.46
+ },
+ {
+   "stAbr": "SD",
+   "state": "SouthDakota",
+   "regular": 3.43,
+   "midGrade": 3.57,
+   "premium": 4.04,
+   "diesel": 4.44
+ },
+ {
+   "stAbr": "TN",
+   "state": "Tennessee",
+   "regular": 3.26,
+   "midGrade": 3.63,
+   "premium": 3.98,
+   "diesel": 4.46
+ },
+ {
+   "stAbr": "TX",
+   "state": "Texas",
+   "regular": 3.13,
+   "midGrade": 3.5,
+   "premium": 3.83,
+   "diesel": 4.2
+ },
+ {
+   "stAbr": "UT",
+   "state": "Utah",
+   "regular": 3.58,
+   "midGrade": 3.78,
+   "premium": 3.97,
+   "diesel": 4.67
+ },
+ {
+   "stAbr": "VA",
+   "state": "Virginia",
+   "regular": 3.39,
+   "midGrade": 3.79,
+   "premium": 4.12,
+   "diesel": 4.63
+ },
+ {
+   "stAbr": "VT",
+   "state": "Vermont",
+   "regular": 3.54,
+   "midGrade": 4.04,
+   "premium": 4.46,
+   "diesel": 5.02
+ },
+ {
+   "stAbr": "WA",
+   "state": "Washington",
+   "regular": 4.13,
+   "midGrade": 4.36,
+   "premium": 4.55,
+   "diesel": 5.07
+ },
+ {
+   "stAbr": "WI",
+   "state": "Wisconsin",
+   "regular": 3.28,
+   "midGrade": 3.67,
+   "premium": 4.12,
+   "diesel": 4.21
+ },
+ {
+   "stAbr": "WV",
+   "state": "WestVirginia",
+   "regular": 3.42,
+   "midGrade": 3.74,
+   "premium": 4.05,
+   "diesel": 4.69
+ },
+ {
+   "stAbr": "WY",
+   "state": "Wyoming",
+   "regular": 3.45,
+   "midGrade": 3.69,
+   "premium": 3.96,
+   "diesel": 4.67
+ }
+]
