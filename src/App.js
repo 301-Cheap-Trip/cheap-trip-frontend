@@ -17,6 +17,7 @@ class App extends React.Component {
       tripList: [1, 2, 3, 4],
       userInformation: {},
       gasPrice: 3.505,
+      userCarGasMileage: 25,
       receivedTripInfo: false,
       showUpdateModal: false,
       showViewModal: false,
@@ -53,6 +54,11 @@ class App extends React.Component {
       this.setState({ tripList: tripsFromDatabase.data });
 
     }
+  }
+
+  handleGasMileage = (gasMileage) => {
+    this.setState({ userCarGasMileage: gasMileage })
+    console.log('Get rekt m8')
   }
 
   handleDelete = async (id) => {
@@ -119,21 +125,21 @@ class App extends React.Component {
     event.preventDefault();
 
 
-    
+
     const currentTrip = {
       tripOrigin: event.target.tripOrigin.value,
       tripOriginState: event.target.tripOriginState.value,
       tripDestination: event.target.tripDestination.value,
       tripDestinationState: event.target.tripDestinationState.value,
       gasMileage: event.target.gasMileage.value
-      
-      
+
+
     }
     const gasPriceOrigin = gasData.filter(e => e.stAbr === currentTrip.tripOriginState)[0].regular
     const gasPriceDest = gasData.filter(e => e.stAbr === currentTrip.tripDestinationState)[0].regular
-    const averageGasPrice = ((gasPriceDest+gasPriceOrigin)/2).toFixed(2);
+    const averageGasPrice = ((gasPriceDest + gasPriceOrigin) / 2).toFixed(2);
     currentTrip.gasPrice = averageGasPrice
-   
+
     try {
 
       if (this.props.auth0.isAuthenticated) {
@@ -207,12 +213,12 @@ class App extends React.Component {
   }
 
   closeSavedTripModal = () => {
-    this.setState({showSavedTripModal: false, savedTripModalDetails: {}})
+    this.setState({ showSavedTripModal: false, savedTripModalDetails: {} })
   }
 
   openSavedTripModal = (tripObj) => {
     console.log(tripObj)
-    this.setState({showSavedTripModal: true, savedTripModalDetails: tripObj})
+    this.setState({ showSavedTripModal: true, savedTripModalDetails: tripObj })
   }
 
 
@@ -229,9 +235,11 @@ class App extends React.Component {
               receivedTripInfo={this.state.receivedTripInfo}
               closeNewTripModal={this.closeNewTripModal}
               gasPrice={this.state.gasPrice}
+              userCarGasMileage={this.state.userCarGasMileage}
+              handleGasMileage={this.handleGasMileage}
               handleSaveTrip={this.handleSaveTrip} />}> </Route>
 
-              
+
             <Route exact path='/about' element={<Profile />}> </Route>
             <Route exact path='/saved-trips' element={
               <SavedTripsPage

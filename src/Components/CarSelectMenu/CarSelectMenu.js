@@ -67,7 +67,9 @@ class CarSelectMenu extends React.Component {
       }
     }
   }
+  this.props.handleGasMileage(userCar.highwayMPG);
   this.setState({year: event.target.value, userCar: userCar});
+  this.props.appHandleGasMileage(userCar.highwayMPG);
 }
 
   render() {
