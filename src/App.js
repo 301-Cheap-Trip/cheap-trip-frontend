@@ -89,9 +89,9 @@ class App extends React.Component {
     // console.log(id);
     const tripObj = {
       duration: (event.target.tripDuration.value * 60),
-      distance: (event.target.tripDistance.value * 1609.34),
-      tripOrigin: (event.target.tripOrigin.value),
-      tripDestination: (event.target.tripDestination.value),
+      distance: tripInfo.distance,
+      tripOrigin: tripInfo.tripOrigin,
+      tripDestination: tripInfo.tripDestination,
       gasPrice: (event.target.gasPrice.value),
       gasMileage: (event.target.gasMileage.value),
       imageURL: tripInfo.imageURL

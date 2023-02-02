@@ -2,11 +2,17 @@
   height: 200px;
   border: 1px solid white;
   width: 30%;
+  background-color: cadetblue;
+  text-align: center;
 }
 
 .button-group {
   margin: 0 auto;
   display: flex;
+  height: 50%;
   justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: flex-end;
 }
+
 

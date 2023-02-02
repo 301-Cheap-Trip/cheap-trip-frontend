@@ -75,7 +75,7 @@ class CarSelectMenu extends React.Component {
   render() {
     return (
       <div className="CarSelectMenu">
-        <label style={{ color: 'white', marginRight: '5px' }} htmlFor="make">Manufacturer</label>
+        <label style={{ color: 'white', marginRight: '5px' }} htmlFor="make">Make</label>
         <select onChange={this.handleMake} name="make" id="make" className="make">
           <option value=""></option>
           {makes.map(make => {
@@ -83,21 +83,25 @@ class CarSelectMenu extends React.Component {
           })}
         </select>
         {this.state.make &&
-          <select onChange={this.handleModel}>
+          <div>
+            <label htmlFor="model">Model</label>
+          <select id="model" onChange={this.handleModel}>
             <option value=""></option>
             {this.state.modelOptions.map(model => {
               return (
                 <option>{model}</option>
               )
             })}
-          </select>}
+          </select></div>}
         {this.state.model &&
-          <select onChange={this.handleYear}>
+        <div>
+          <label htmlFor="year">Year<span className='spacer' ></span></label>
+          <select id="year" onChange={this.handleYear}>
             <option value=""></option>
             {this.state.yearOptions.map(car => {
               return <option value={car}>{car}</option>
             })}
-          </select>}
+          </select></div>}
           {this.state.userCar &&
           <p>Your car gets {this.state.userCar.highwayMPG} miles to the gallon</p>}
       </div>

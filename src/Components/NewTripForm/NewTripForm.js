@@ -15,7 +15,7 @@ class NewTripForm extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="NewTripCollection">
         {
           this.props.auth0.isAuthenticated ?
             <>
@@ -23,11 +23,11 @@ class NewTripForm extends React.Component {
                 <form onSubmit={this.props.handleSubmit} >
                   <h2>New Trip Form</h2>
                   <label htmlFor="trip-origin">Trip Origin</label>
-                  <input type='text' id='trip-origin' placeholder='Good' name="tripOrigin" required />
-                  <StateSelect name='tripOriginState' />
+                  <input type='text' id='trip-origin' placeholder='Kalamazoo' name="tripOrigin" required />
+                  <StateSelect name='tripOriginState' defaultValue="MI" />
                   <label htmlFor="trip-origin">Trip Destination</label>
-                  <input type='text' id='trip-origin' placeholder='Better' name="tripDestination" required />
-                  <StateSelect name='tripDestinationState' />
+                  <input type='text' id='trip-origin' placeholder='Winslow' name="tripDestination" required />
+                  <StateSelect name='tripDestinationState' defaultValue="AZ" />
                   <label htmlFor="trip-origin">Vehicle Highway Mileage</label>
                   <input type='text' id='gas-mileage' placeholder='Mileage in miles per gallon' defaultValue={this.props.userCarGasMileage} name='gasMileage' required />
                   <button>Calculate Trip</button>
@@ -39,17 +39,17 @@ class NewTripForm extends React.Component {
                   currentTrip={this.props.currentTrip}
                   gasPrice={this.props.gasPrice}
                   handleSaveTrip={this.props.handleSaveTrip}
-                 />
-                 
-                 <div className="carSelectBox">
-        <h4>Don't know your gas mileage?</h4>
-        <p>Look it up here</p>
-        <CarSelectMenu handleGasMileage={this.handleGasMileage} appHandleGasMileage = {this.props.handleGasMileage} />
-      </div>
-                 
-                 
+                />
+
+                <div className="carSelectBox">
+                  <h4>Don't know your gas mileage?</h4>
+                  <p>Look it up here</p>
+                  <CarSelectMenu handleGasMileage={this.handleGasMileage} appHandleGasMileage={this.props.handleGasMileage} />
+                </div>
+
+
               </div>
-              
+
             </>
             :
             <div className='welcome'>
@@ -58,7 +58,7 @@ class NewTripForm extends React.Component {
               <Login />
             </div>
         }
-      </>
+      </div>
 
     )
   }
