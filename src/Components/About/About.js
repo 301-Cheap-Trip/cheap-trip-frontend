@@ -18,12 +18,12 @@ class Profile extends Component {
           <Card.Body>
             <Card.Title>Dominick Martin</Card.Title>
             <Card.Text className="card-text">
-              Dominick Martin is a recent graduate of CodeFellows and has a passion for developing innovative software solutions. With a strong foundation in programming languages and experience working on projects in a team environment, Dominick is eager to bring his skills and enthusiasm to a new role as a software developer. He is confident in his ability to learn quickly and is dedicated to continuously improving his abilities to deliver high-quality software.
+               With a strong foundation in programming languages and experience working on projects in a team environment, Dominick is eager to bring his skills and enthusiasm to a new role as a software developer. He is confident in his ability to learn quickly and is dedicated to continuously improving his abilities to deliver high-quality software.
             </Card.Text>
           </Card.Body>
           <Card.Body>
-            <Card.Link href="https://github.com/Dommcat">GitHub</Card.Link>
-            <Card.Link href="https://www.linkedin.com/in/dominickmartin/">Linkedin</Card.Link>
+            <Card.Link href="https://github.com/Dommcat"><i className="icons-link fa-brands fa-github"></i></Card.Link>
+            <Card.Link href="https://www.linkedin.com/in/dominickmartin/"><i class="icons-link fa-brands fa-linkedin"></i></Card.Link>
           </Card.Body>
         </Card>
         <Card className="card" style={{ width: '20rem' }}>
@@ -36,8 +36,8 @@ class Profile extends Component {
             </Card.Text>
           </Card.Body>
           <Card.Body>
-            <Card.Link href="https://github.com/mel-johnston">GitHub</Card.Link>
-            <Card.Link href="https://www.linkedin.com/in/mel-johnston">Linkedin</Card.Link>
+            <Card.Link href="https://github.com/mel-johnston"><i className="icons-link fa-brands fa-github"></i></Card.Link>
+            <Card.Link href="https://www.linkedin.com/in/mel-johnston"><i class="icons-link fa-brands fa-linkedin"></i></Card.Link>
           </Card.Body>
         </Card>
         <Card className="card" style={{ width: '20rem' }}>
@@ -47,8 +47,8 @@ class Profile extends Component {
             <Card.Text className="card-text">
               My name is Jordan Covington. I am from Campobello, South Carolina and am currently living at Joint Base Lewis-McChord, Washington with my wife, who is active duty Air Force, and my 2 daughters. I have a degree in Computer Information Systems and Business Administration from McKendree University. I am currently enrolled at Code Fellows to transition my career into web development.
             </Card.Text>
-            <Card.Link href="https://github.com/JMCov">GitHub</Card.Link>
-            <Card.Link href="https://www.linkedin.com/in/jordan-covington-05583a257/">LinkedIn</Card.Link>
+            <Card.Link href="https://github.com/JMCov"><i className="icons-link fa-brands fa-github"></i></Card.Link>
+            <Card.Link href="https://www.linkedin.com/in/jordan-covington-05583a257/"><i class="icons-link fa-brands fa-linkedin"></i></Card.Link>
           </Card.Body>
         </Card>
         <Card className="card" style={{ width: '20rem' }}>
@@ -58,8 +58,8 @@ class Profile extends Component {
             <Card.Text className="card-text">
               Marcus Bynoe: Id veniam dolor incididunt culpa velit excepteur proident minim cupidatat. Cillum proident quis est cillum cillum fugiat proident nisi officia voluptate quis laboris. Nostrud nostrud cillum dolor fugiat ea do occaecat ex adipisicing ex incididunt excepteur. Eiusmod excepteur cupidatat aute eiusmod minim sit. Irure occaecat amet fugiat aliqua do. Deserunt dolor dolor officia in minim labore sunt et sunt consectetur mollit ut.
             </Card.Text>
-            <Card.Link href="https://github.com/marcusbynoe">GitHub</Card.Link>
-            <Card.Link href="https://www.linkedin.com/in/marcusbynoe">Linkedin</Card.Link>
+            <Card.Link href="https://github.com/marcusbynoe"><i className="icons-link fa-brands fa-github"></i></Card.Link>
+            <Card.Link href="https://www.linkedin.com/in/marcusbynoe"><i class="icons-link fa-brands fa-linkedin"></i></Card.Link>
           </Card.Body>
         </Card>
         <Card className="card" style={{ width: '20rem' }}>
@@ -69,8 +69,8 @@ class Profile extends Component {
             <Card.Text className="card-text">
               I'm an Air Force veteran and aspiring software developer. I'm excited to learn how to build useful things and make them look beautiful too.
             </Card.Text>
-            <Card.Link href="https://github.com/tyler-bennett52">GitHub</Card.Link>
-            <Card.Link href="https://www.linkedin.com/in/tyler-bennett-608928108/">Linkedin</Card.Link>
+            <Card.Link href="https://github.com/tyler-bennett52"><i className="icons-link fa-brands fa-github"></i></Card.Link>
+            <Card.Link href="https://www.linkedin.com/in/tyler-bennett-608928108/"><i class="icons-link fa-brands fa-linkedin"></i></Card.Link>
           </Card.Body>
         </Card>
       </div>
