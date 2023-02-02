@@ -21,7 +21,7 @@ class SavedTrip extends React.Component {
         <p>Expenses - ${((distanceMiles / gasMileage) * gasPrice * 2).toFixed(2)}</p>
         <p>{hours} hours {minutes} minutes</p>
         <div className="button-group">
-        <Button className="button" variant="info" >View</Button>
+        <Button onClick={() => this.props.openSavedTripModal(this.props.trip)} className="button" variant="info" >View</Button>
         <Button onClick={() => this.props.openUpdateModal(this.props.trip)} className="button" variant="warning" >Edit</Button>
         <Button onClick={this.handleHandleDelete} className="button" variant="danger" >Delete</Button>
         </div>

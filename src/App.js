@@ -19,7 +19,10 @@ class App extends React.Component {
       receivedTripInfo: false,
       showUpdateModal: false,
       showViewModal: false,
-      updatingTrip: {}
+      showSavedTripModal: false,
+      updatingTrip: {},
+      savedTripModalDetails: {
+      }
     }
   }
 
@@ -134,85 +137,99 @@ class App extends React.Component {
         let response = await axios(config);
         console.log(response.data);
         const tripWithLatLongs = { ...currentTrip, ...response.data, imageURL: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${response.data.centerLat},${response.data.centerLon}&size=600x600&zoom=18&markers=icon:small-orange-cutout%7C${response.data.originLat},${response.data.originLon}%7C${response.data.destLat},${response.data.destLon}` }
-      console.log(tripWithLatLongs)
-      this.setState({
-        currentTrip: tripWithLatLongs,
-        receivedTripInfo: true
-      })
-    }
-
-    } catch(error) {
-    console.log(error);
-  }
-
-}
-
-handleSaveTrip = async () => {
-  const tripList = [...this.state.tripList, this.state.currentTrip];
-  let requestBody = this.state.currentTrip;
-  requestBody.gasPrice = this.state.gasPrice;
-  try {
-    if (this.props.auth0.isAuthenticated) {
-      const authResponse = await this.props.auth0.getIdTokenClaims();
-      const jwt = authResponse.__raw;
-      console.log('token: ', jwt);
-      const config = {
-        headers: { "Authorization": `Bearer ${jwt}` },
-        method: 'post',
-        baseURL: process.env.REACT_APP_SERVER,
-        url: '/trips',
-        data: requestBody
+        console.log(tripWithLatLongs)
+        this.setState({
+          currentTrip: tripWithLatLongs,
+          receivedTripInfo: true
+        })
       }
-      let response = await axios(config);
-      console.log(response.data);
-      this.setState({ tripList: tripList, receivedTripInfo: false })
+
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error)
+
   }
-}
 
-closeUpdateModal = () => {
-  this.setState({ showUpdateModal: false })
-  console.log(this.state.updatingTrip)
-}
+  handleSaveTrip = async () => {
+    const tripList = [...this.state.tripList, this.state.currentTrip];
+    let requestBody = this.state.currentTrip;
+    requestBody.gasPrice = this.state.gasPrice;
+    try {
+      if (this.props.auth0.isAuthenticated) {
+        const authResponse = await this.props.auth0.getIdTokenClaims();
+        const jwt = authResponse.__raw;
+        console.log('token: ', jwt);
+        const config = {
+          headers: { "Authorization": `Bearer ${jwt}` },
+          method: 'post',
+          baseURL: process.env.REACT_APP_SERVER,
+          url: '/trips',
+          data: requestBody
+        }
+        let response = await axios(config);
+        console.log(response.data);
+        this.setState({ tripList: tripList, receivedTripInfo: false })
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
-openUpdateModal = (tripObj) => {
-  this.setState({
-    showUpdateModal: true,
-    updatingTrip: tripObj
-  })
-}
+  closeUpdateModal = () => {
+    this.setState({ showUpdateModal: false })
+    console.log(this.state.updatingTrip)
+  }
 
-render() {
-  return (
-    <Router>
-      <NavBar />
-      <div className='App' >
-        <Routes>
-          <Route exact path='/' element={<NewTripForm
-            handleSubmit={this.handleSubmit}
-            currentTrip={this.state.currentTrip}
-            receivedTripInfo={this.state.receivedTripInfo}
-            closeNewTripModal={this.closeNewTripModal}
-            gasPrice={this.state.gasPrice}
-            handleSaveTrip={this.handleSaveTrip} />}> </Route>
-          <Route exact path='/about' element={<Profile />}> </Route>
-          <Route exact path='/saved-trips' element={
-            <SavedTripsPage
-              tripList={this.state.tripList}
-              handleDelete={this.handleDelete}
-              handleUpdate={this.handleUpdate}
-              closeUpdateModal={this.closeUpdateModal}
-              openUpdateModal={this.openUpdateModal}
-              showUpdateModal={this.state.showUpdateModal}
-              updatingTrip={this.state.updatingTrip}
-              getTrips={this.getTrips}
-            />}> </Route>
-        </Routes>
-      </div>
-    </Router >
-  )
-}
+  openUpdateModal = (tripObj) => {
+    this.setState({
+      showUpdateModal: true,
+      updatingTrip: tripObj
+    })
+  }
+
+  closeSavedTripModal = () => {
+    this.setState({showSavedTripModal: false, savedTripModalDetails: {}})
+  }
+
+  openSavedTripModal = (tripObj) => {
+    console.log(tripObj)
+    this.setState({showSavedTripModal: true, savedTripModalDetails: tripObj})
+  }
+
+
+  render() {
+    return (
+      <Router>
+        <NavBar />
+        <div className='App' >
+          <Routes>
+            <Route exact path='/' element={<NewTripForm
+              handleSubmit={this.handleSubmit}
+              currentTrip={this.state.currentTrip}
+              receivedTripInfo={this.state.receivedTripInfo}
+              closeNewTripModal={this.closeNewTripModal}
+              gasPrice={this.state.gasPrice}
+              handleSaveTrip={this.handleSaveTrip} />}> </Route>
+            <Route exact path='/about' element={<Profile />}> </Route>
+            <Route exact path='/saved-trips' element={
+              <SavedTripsPage
+                tripList={this.state.tripList}
+                handleDelete={this.handleDelete}
+                handleUpdate={this.handleUpdate}
+                closeUpdateModal={this.closeUpdateModal}
+                openUpdateModal={this.openUpdateModal}
+                showUpdateModal={this.state.showUpdateModal}
+                updatingTrip={this.state.updatingTrip}
+                getTrips={this.getTrips}
+                savedTripModalDetails={this.state.savedTripModalDetails}
+                showSavedTripModal={this.state.showSavedTripModal}
+                openSavedTripModal={this.openSavedTripModal}
+                closeSavedTripModal={this.closeSavedTripModal}
+              />}> </Route>
+          </Routes>
+        </div>
+      </Router >
+    )
+  }
 }
 export default withAuth0(App);
