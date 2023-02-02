@@ -20,7 +20,10 @@ class App extends React.Component {
       receivedTripInfo: false,
       showUpdateModal: false,
       showViewModal: false,
-      updatingTrip: {}
+      showSavedTripModal: false,
+      updatingTrip: {},
+      savedTripModalDetails: {
+      }
     }
   }
 
@@ -37,7 +40,9 @@ class App extends React.Component {
     if (this.props.auth0.isAuthenticated) {
       const authResponse = await this.props.auth0.getIdTokenClaims();
       const jwt = authResponse.__raw;
+
       // console.log('token: ', jwt);
+
       const config = {
         headers: { "Authorization": `Bearer ${jwt}` },
         method: 'get',
@@ -112,7 +117,7 @@ class App extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
 
-    // averagePrice = 
+
     
     const currentTrip = {
       tripOrigin: event.target.tripOrigin.value,
@@ -143,11 +148,11 @@ class App extends React.Component {
         }
         console.log(config.url)
         let response = await axios(config);
-        // console.log(response.data);
-        // currentTrip.distance = response.data.distance;
-        // currentTrip.duration = response.data.duration;
-        const tripWithLatLongs = { ...currentTrip, ...response.data }
-        // console.log(tripWithLatLongs)
+
+
+        const tripWithLatLongs = { ...currentTrip, ...response.data, imageURL: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${response.data.centerLat},${response.data.centerLon}&size=600x600&zoom=18&markers=icon:small-orange-cutout%7C${response.data.originLat},${response.data.originLon}%7C${response.data.destLat},${response.data.destLon}` }
+
+
         this.setState({
           currentTrip: tripWithLatLongs,
           receivedTripInfo: true,
@@ -200,6 +205,16 @@ class App extends React.Component {
     })
   }
 
+  closeSavedTripModal = () => {
+    this.setState({showSavedTripModal: false, savedTripModalDetails: {}})
+  }
+
+  openSavedTripModal = (tripObj) => {
+    console.log(tripObj)
+    this.setState({showSavedTripModal: true, savedTripModalDetails: tripObj})
+  }
+
+
   render() {
     return (
       <Router>
@@ -224,6 +239,10 @@ class App extends React.Component {
                 showUpdateModal={this.state.showUpdateModal}
                 updatingTrip={this.state.updatingTrip}
                 getTrips={this.getTrips}
+                savedTripModalDetails={this.state.savedTripModalDetails}
+                showSavedTripModal={this.state.showSavedTripModal}
+                openSavedTripModal={this.openSavedTripModal}
+                closeSavedTripModal={this.closeSavedTripModal}
               />}> </Route>
           </Routes>
         </div>
