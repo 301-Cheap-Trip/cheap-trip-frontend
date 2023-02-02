@@ -109,12 +109,17 @@ class App extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
+    
     const currentTrip = {
       tripOrigin: event.target.tripOrigin.value,
+      tripOriginState: event.target.tripOriginState.value,
       tripDestination: event.target.tripDestination.value,
+      tripDestinationState: event.target.tripDestinationState.value,
       gasMileage: event.target.gasMileage.value
+
     }
     try {
+
       if (this.props.auth0.isAuthenticated) {
         const authResponse = await this.props.auth0.getIdTokenClaims();
         const jwt = authResponse.__raw;
@@ -123,7 +128,7 @@ class App extends React.Component {
           headers: { "Authorization": `Bearer ${jwt}` },
           method: 'get',
           baseURL: process.env.REACT_APP_SERVER,
-          url: `/directions?cityOne=${event.target.tripOrigin.value}&cityTwo=${event.target.tripDestination.value}`
+          url: `/directions?cityOne=${event.target.tripOrigin.value}&stateOne=${event.target.tripOriginState.value}&stateTwo=${event.target.tripDestinationState.value}&cityTwo=${event.target.tripDestination.value}`
         }
         let response = await axios(config);
         console.log(response.data);
@@ -134,7 +139,7 @@ class App extends React.Component {
           receivedTripInfo: true
         })
       }
-      // let url = `${process.env.REACT_APP_SERVER}/directions?cityOne=${event.target.tripOrigin.value}&cityTwo=${event.target.tripDestination.value}`;
+
     } catch (error) {
       console.log(error);
     }
