@@ -8,4 +8,7 @@ img {
 
 .tripInfo{
   list-style-type: none;
+  height: 100%;
+  line-height: 2.5em;
+  font-size: 1.1rem;
 }
