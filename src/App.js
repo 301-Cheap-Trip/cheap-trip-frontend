@@ -6,6 +6,7 @@ import Profile from './Components/About/About';
 import SavedTripsPage from './Components/SavedTripsPage/SavedTripsPage';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { withAuth0 } from "@auth0/auth0-react";
 
 class App extends React.Component {
   constructor(props) {
@@ -31,19 +32,37 @@ class App extends React.Component {
   }
 
   getTrips = async () => {
-    try {
-      const tripsFromDatabase = await axios.get(`${process.env.REACT_APP_SERVER}/trips`);
-      this.setState({ tripList: tripsFromDatabase.data });
-    } catch (error) {
-      console.log(error);
-    }
+      if (this.props.auth0.isAuthenticated) {
+        const authResponse = await this.props.auth0.getIdTokenClaims();
+        const jwt = authResponse.__raw;
+        console.log('token: ', jwt);
+        const config = {
+          headers: { "Authorization": `Bearer ${jwt}` },
+          method: 'get',
+          baseURL: process.env.REACT_APP_SERVER,
+          url: '/trips'
+        }
+        const tripsFromDatabase = await axios(config);
+        this.setState({ tripList: tripsFromDatabase.data });
+
+      }
   }
 
   handleDelete = async (id) => {
     try {
-      let url = `${process.env.REACT_APP_SERVER}/trips/${id}`
-      let deleteConfirmation = await axios.delete(url)
-      console.log(deleteConfirmation)
+      if (this.props.auth0.isAuthenticated) {
+        const authResponse = await this.props.auth0.getIdTokenClaims();
+        const jwt = authResponse.__raw;
+        console.log('token: ', jwt);
+        const config = {
+          headers: { "Authorization": `Bearer ${jwt}` },
+          method: 'delete',
+          baseURL: process.env.REACT_APP_SERVER,
+          url: `/trips/${id}`
+        }
+        let deleteConfirmation = await axios(config);
+        console.log(deleteConfirmation)
+        }
     } catch (error) {
       console.log(error);
     }
@@ -64,14 +83,25 @@ class App extends React.Component {
       gasMileage: (event.target.gasMileage.value)
     }
     try {
-      let url = `${process.env.REACT_APP_SERVER}/trips/${id}`;
-      let updateResponse = await axios.put(url, tripObj);
-      const oldTripList = this.state.tripList;
-      const updatedTripList = oldTripList.map(trip => {
-        if (trip._id !== id) {
-          return trip;
-        } return updateResponse.data;
-      }); this.setState({ tripList: updatedTripList, showUpdateModal: false })
+      if (this.props.auth0.isAuthenticated) {
+        const authResponse = await this.props.auth0.getIdTokenClaims();
+        const jwt = authResponse.__raw;
+        console.log('token: ', jwt);
+        const config = {
+          headers: { "Authorization": `Bearer ${jwt}` },
+          method: 'put',
+          baseURL: process.env.REACT_APP_SERVER,
+          url: `/trips/${id}`,
+          data: tripObj
+        }
+        let updateResponse = await axios(config);
+        const oldTripList = this.state.tripList;
+        const updatedTripList = oldTripList.map(trip => {
+          if (trip._id !== id) {
+            return trip;
+          } return updateResponse.data;
+        }); this.setState({ tripList: updatedTripList, showUpdateModal: false })
+      }
     } catch (error) {
 
     }
@@ -85,15 +115,26 @@ class App extends React.Component {
       gasMileage: event.target.gasMileage.value
     }
     try {
-      let url = `${process.env.REACT_APP_SERVER}/directions?cityOne=${event.target.tripOrigin.value}&cityTwo=${event.target.tripDestination.value}`;
-      let response = await axios.get(url);
-      console.log(response.data);
-      currentTrip.distance = response.data.distance;
-      currentTrip.duration = response.data.duration;
-      this.setState({
-        currentTrip: currentTrip,
-        receivedTripInfo: true
-      })
+      if (this.props.auth0.isAuthenticated) {
+        const authResponse = await this.props.auth0.getIdTokenClaims();
+        const jwt = authResponse.__raw;
+        console.log('token: ', jwt);
+        const config = {
+          headers: { "Authorization": `Bearer ${jwt}` },
+          method: 'get',
+          baseURL: process.env.REACT_APP_SERVER,
+          url: `/directions?cityOne=${event.target.tripOrigin.value}&cityTwo=${event.target.tripDestination.value}`
+        }
+        let response = await axios(config);
+        console.log(response.data);
+        currentTrip.distance = response.data.distance;
+        currentTrip.duration = response.data.duration;
+        this.setState({
+          currentTrip: currentTrip,
+          receivedTripInfo: true
+        })
+      }
+      // let url = `${process.env.REACT_APP_SERVER}/directions?cityOne=${event.target.tripOrigin.value}&cityTwo=${event.target.tripDestination.value}`;
     } catch (error) {
       console.log(error);
     }
@@ -104,18 +145,29 @@ class App extends React.Component {
     const tripList = [...this.state.tripList, this.state.currentTrip];
     let requestBody = this.state.currentTrip;
     requestBody.gasPrice = this.state.gasPrice;
-    requestBody.username = 'HankHill';
     try {
-      let response = await axios.post(`${process.env.REACT_APP_SERVER}/trips`, requestBody);
-      console.log(response.data);
-      this.setState({ tripList: tripList })
+      if (this.props.auth0.isAuthenticated) {
+        const authResponse = await this.props.auth0.getIdTokenClaims();
+        const jwt = authResponse.__raw;
+        console.log('token: ', jwt);
+        const config = {
+          headers: { "Authorization": `Bearer ${jwt}` },
+          method: 'post',
+          baseURL: process.env.REACT_APP_SERVER,
+          url: '/trips',
+          data: requestBody
+        }
+        let response = await axios(config);
+        console.log(response.data);
+        this.setState({ tripList: tripList, receivedTripInfo: false })
+      }
     } catch (error) {
       console.log(error)
     }
   }
 
   closeUpdateModal = () => {
-    this.setState({showUpdateModal: false})
+    this.setState({ showUpdateModal: false })
     console.log(this.state.updatingTrip)
   }
 
@@ -149,6 +201,7 @@ class App extends React.Component {
                 openUpdateModal={this.openUpdateModal}
                 showUpdateModal={this.state.showUpdateModal}
                 updatingTrip={this.state.updatingTrip}
+                getTrips={this.getTrips}
               />}> </Route>
           </Routes>
         </div>
@@ -156,4 +209,4 @@ class App extends React.Component {
     )
   }
 }
-export default App;
+export default withAuth0(App);

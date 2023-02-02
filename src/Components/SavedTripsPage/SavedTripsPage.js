@@ -5,6 +5,10 @@ import UpdateTripModal from "../UpdateTripModal/UpdateTripModal";
 
 
 class SavedTripsPage extends React.Component {
+  componentDidMount () {
+    this.props.getTrips();
+  }
+
   render() {
     return (
       <div className="SavedTripsPage">
