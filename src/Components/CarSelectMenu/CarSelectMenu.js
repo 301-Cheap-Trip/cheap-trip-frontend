@@ -7,6 +7,7 @@ class CarSelectMenu extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      userCar: '',
       make: '',
       model: '',
       year: '',
@@ -55,6 +56,20 @@ class CarSelectMenu extends React.Component {
     this.setState({ model: event.target.value, yearOptions: yearNoDuplicates })
   }
 
+  handleYear = (event) => {
+    let userCar = {}
+  for (let carObj of vehicleData) {
+    if (carObj.make === this.state.make) {
+      if (carObj.model === this.state.model){
+        if (carObj.year === +event.target.value) {
+          userCar = carObj
+        }
+      }
+    }
+  }
+  this.setState({year: event.target.value, userCar: userCar});
+}
+
   render() {
     return (
       <div className="CarSelectMenu">
@@ -75,12 +90,14 @@ class CarSelectMenu extends React.Component {
             })}
           </select>}
         {this.state.model &&
-          <select>
+          <select onChange={this.handleYear}>
             <option value=""></option>
             {this.state.yearOptions.map(car => {
-              return <option value={car}>{car.year}</option>
+              return <option value={car}>{car}</option>
             })}
           </select>}
+          {this.state.userCar &&
+          <p>Your car gets {this.state.userCar.highwayMPG} miles to the gallon</p>}
       </div>
     )
   }

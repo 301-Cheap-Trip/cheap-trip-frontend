@@ -2,10 +2,12 @@ import React from "react";
 import './NewTripForm.css';
 import NewTripModal from "../NewTripModal/NewTripModal";
 import StateSelect from "../StateSelect/StateSelect";
+import CarSelectMenu from "../CarSelectMenu/CarSelectMenu";
 
 class NewTripForm extends React.Component {
   render() {
     return (
+      <>
       <div className="NewTripForm">
       <form onSubmit={this.props.handleSubmit} >
         <h2>New Trip Form</h2>
@@ -28,6 +30,12 @@ class NewTripForm extends React.Component {
       handleSaveTrip={this.props.handleSaveTrip}
        />
       </div>
+      <div className="carSelectBox">
+        <h4>Don't know your gas mileage?</h4>
+        <p>Look it up here</p>
+        <CarSelectMenu/>
+      </div>
+      </>
 
     )
   }
