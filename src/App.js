@@ -78,7 +78,7 @@ class App extends React.Component {
     this.setState({ tripList: filteredTrips })
   }
 
-  handleUpdate = async (event, id) => {
+  handleUpdate = async (event, id, tripInfo) => {
     event.preventDefault();
     // console.log(id);
     const tripObj = {
@@ -87,7 +87,8 @@ class App extends React.Component {
       tripOrigin: (event.target.tripOrigin.value),
       tripDestination: (event.target.tripDestination.value),
       gasPrice: (event.target.gasPrice.value),
-      gasMileage: (event.target.gasMileage.value)
+      gasMileage: (event.target.gasMileage.value),
+      imageURL: tripInfo.imageURL
     }
     try {
       if (this.props.auth0.isAuthenticated) {

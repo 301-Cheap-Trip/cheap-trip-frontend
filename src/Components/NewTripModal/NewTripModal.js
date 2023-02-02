@@ -24,7 +24,7 @@ class NewTripModal extends React.Component {
       >
         <Modal.Header >
           <Modal.Title style={{ alignText: 'center', margin: '0 auto' }} id="contained-modal-title-vcenter">
-            {this.props.currentTrip.tripOrigin} - {this.props.currentTrip.tripDestination}
+            {this.props.currentTrip.tripOrigin},{this.props.currentTrip.tripOriginState} - {this.props.currentTrip.tripDestination},{this.props.currentTrip.tripDestinationState}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className='show-grid'>
@@ -36,7 +36,7 @@ class NewTripModal extends React.Component {
                 <li>One way drive time - {hours} hours {minutes} minutes</li>
                 <li>One way distance - {distanceMiles} miles</li>
                 <li>Gas Mileage - {gasMileage} mpg</li>
-                <li>Average Gas Price - {gasPrice}</li>
+                <li>Average Gas Price - ${gasPrice}</li>
                 <li>Total Gas Cost One Way- ${((distanceMiles / +gasMileage) * gasPrice).toFixed(2)}</li>
                 <li>Total Gas Cost Round Trip- ${((distanceMiles / +gasMileage) * gasPrice).toFixed(2) * 2}</li>
               </ul>

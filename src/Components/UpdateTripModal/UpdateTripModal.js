@@ -18,7 +18,7 @@ class UpdateTripModal extends React.Component {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={(event) => this.props.handleUpdate(event, this.props.trip._id)} >
+          <form onSubmit={(event) => this.props.handleUpdate(event, this.props.trip._id, this.props.trip)} >
             <h2>Update Trip Form</h2>
             <label htmlFor="trip-origin">Trip Origin</label>
             <input type='text' id='trip-origin' placeholder='Good' defaultValue={this.props.trip.tripOrigin} name="tripOrigin" required />
