@@ -33,20 +33,20 @@ class App extends React.Component {
   }
 
   getTrips = async () => {
-      if (this.props.auth0.isAuthenticated) {
-        const authResponse = await this.props.auth0.getIdTokenClaims();
-        const jwt = authResponse.__raw;
-        console.log('token: ', jwt);
-        const config = {
-          headers: { "Authorization": `Bearer ${jwt}` },
-          method: 'get',
-          baseURL: process.env.REACT_APP_SERVER,
-          url: '/trips'
-        }
-        const tripsFromDatabase = await axios(config);
-        this.setState({ tripList: tripsFromDatabase.data });
-
+    if (this.props.auth0.isAuthenticated) {
+      const authResponse = await this.props.auth0.getIdTokenClaims();
+      const jwt = authResponse.__raw;
+      console.log('token: ', jwt);
+      const config = {
+        headers: { "Authorization": `Bearer ${jwt}` },
+        method: 'get',
+        baseURL: process.env.REACT_APP_SERVER,
+        url: '/trips'
       }
+      const tripsFromDatabase = await axios(config);
+      this.setState({ tripList: tripsFromDatabase.data });
+
+    }
   }
 
   handleDelete = async (id) => {
@@ -63,7 +63,7 @@ class App extends React.Component {
         }
         let deleteConfirmation = await axios(config);
         console.log(deleteConfirmation)
-        }
+      }
     } catch (error) {
       console.log(error);
     }
@@ -110,7 +110,7 @@ class App extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    
+
     const currentTrip = {
       tripOrigin: event.target.tripOrigin.value,
       tripOriginState: event.target.tripOriginState.value,
@@ -133,88 +133,86 @@ class App extends React.Component {
         }
         let response = await axios(config);
         console.log(response.data);
-        // currentTrip.distance = response.data.distance;
-        // currentTrip.duration = response.data.duration;
-        const tripWithLatLongs = {...currentTrip, ...response.data}
-        console.log(tripWithLatLongs)
-        this.setState({
-          currentTrip: tripWithLatLongs,
-          receivedTripInfo: true
-        })
-      }
-
-    } catch (error) {
-      console.log(error);
+        const tripWithLatLongs = { ...currentTrip, ...response.data, imageURL: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${response.data.centerLat},${response.data.centerLon}&size=600x600&zoom=18&markers=icon:small-orange-cutout%7C${response.data.originLat},${response.data.originLon}%7C${response.data.destLat},${response.data.destLon}` }
+      console.log(tripWithLatLongs)
+      this.setState({
+        currentTrip: tripWithLatLongs,
+        receivedTripInfo: true
+      })
     }
 
+    } catch(error) {
+    console.log(error);
   }
 
-  handleSaveTrip = async () => {
-    const tripList = [...this.state.tripList, this.state.currentTrip];
-    let requestBody = this.state.currentTrip;
-    requestBody.gasPrice = this.state.gasPrice;
-    try {
-      if (this.props.auth0.isAuthenticated) {
-        const authResponse = await this.props.auth0.getIdTokenClaims();
-        const jwt = authResponse.__raw;
-        console.log('token: ', jwt);
-        const config = {
-          headers: { "Authorization": `Bearer ${jwt}` },
-          method: 'post',
-          baseURL: process.env.REACT_APP_SERVER,
-          url: '/trips',
-          data: requestBody
-        }
-        let response = await axios(config);
-        console.log(response.data);
-        this.setState({ tripList: tripList, receivedTripInfo: false })
+}
+
+handleSaveTrip = async () => {
+  const tripList = [...this.state.tripList, this.state.currentTrip];
+  let requestBody = this.state.currentTrip;
+  requestBody.gasPrice = this.state.gasPrice;
+  try {
+    if (this.props.auth0.isAuthenticated) {
+      const authResponse = await this.props.auth0.getIdTokenClaims();
+      const jwt = authResponse.__raw;
+      console.log('token: ', jwt);
+      const config = {
+        headers: { "Authorization": `Bearer ${jwt}` },
+        method: 'post',
+        baseURL: process.env.REACT_APP_SERVER,
+        url: '/trips',
+        data: requestBody
       }
-    } catch (error) {
-      console.log(error)
+      let response = await axios(config);
+      console.log(response.data);
+      this.setState({ tripList: tripList, receivedTripInfo: false })
     }
+  } catch (error) {
+    console.log(error)
   }
+}
 
-  closeUpdateModal = () => {
-    this.setState({ showUpdateModal: false })
-    console.log(this.state.updatingTrip)
-  }
+closeUpdateModal = () => {
+  this.setState({ showUpdateModal: false })
+  console.log(this.state.updatingTrip)
+}
 
-  openUpdateModal = (tripObj) => {
-    this.setState({
-      showUpdateModal: true,
-      updatingTrip: tripObj
-    })
-  }
+openUpdateModal = (tripObj) => {
+  this.setState({
+    showUpdateModal: true,
+    updatingTrip: tripObj
+  })
+}
 
-  render() {
-    return (
-      <Router>
-        <NavBar />
-        <div className='App' >
-          <Routes>
-            <Route exact path='/' element={<NewTripForm
-              handleSubmit={this.handleSubmit}
-              currentTrip={this.state.currentTrip}
-              receivedTripInfo={this.state.receivedTripInfo}
-              closeNewTripModal={this.closeNewTripModal}
-              gasPrice={this.state.gasPrice}
-              handleSaveTrip={this.handleSaveTrip} />}> </Route>
-            <Route exact path='/about' element={<Profile />}> </Route>
-            <Route exact path='/saved-trips' element={
-              <SavedTripsPage
-                tripList={this.state.tripList}
-                handleDelete={this.handleDelete}
-                handleUpdate={this.handleUpdate}
-                closeUpdateModal={this.closeUpdateModal}
-                openUpdateModal={this.openUpdateModal}
-                showUpdateModal={this.state.showUpdateModal}
-                updatingTrip={this.state.updatingTrip}
-                getTrips={this.getTrips}
-              />}> </Route>
-          </Routes>
-        </div>
-      </Router >
-    )
-  }
+render() {
+  return (
+    <Router>
+      <NavBar />
+      <div className='App' >
+        <Routes>
+          <Route exact path='/' element={<NewTripForm
+            handleSubmit={this.handleSubmit}
+            currentTrip={this.state.currentTrip}
+            receivedTripInfo={this.state.receivedTripInfo}
+            closeNewTripModal={this.closeNewTripModal}
+            gasPrice={this.state.gasPrice}
+            handleSaveTrip={this.handleSaveTrip} />}> </Route>
+          <Route exact path='/about' element={<Profile />}> </Route>
+          <Route exact path='/saved-trips' element={
+            <SavedTripsPage
+              tripList={this.state.tripList}
+              handleDelete={this.handleDelete}
+              handleUpdate={this.handleUpdate}
+              closeUpdateModal={this.closeUpdateModal}
+              openUpdateModal={this.openUpdateModal}
+              showUpdateModal={this.state.showUpdateModal}
+              updatingTrip={this.state.updatingTrip}
+              getTrips={this.getTrips}
+            />}> </Route>
+        </Routes>
+      </div>
+    </Router >
+  )
+}
 }
 export default withAuth0(App);
