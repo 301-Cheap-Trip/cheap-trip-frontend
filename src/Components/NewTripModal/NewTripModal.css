@@ -1,0 +1,11 @@
+img {
+  width: 100%;
+}
+
+.tripInfo li{
+  width: 100%;
+}
+
+.tripInfo{
+  list-style-type: none;
+}

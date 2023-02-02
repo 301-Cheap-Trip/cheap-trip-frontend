@@ -1,6 +1,9 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React from 'react';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 import './NewTripModal.css';
 
 
@@ -11,7 +14,7 @@ class NewTripModal extends React.Component {
     let gasPrice = this.props.gasPrice;
     let tripDuration = this.props.currentTrip.duration;
     let minutes = Math.round((tripDuration % 3600) / 60);
-    let hours = (tripDuration - (tripDuration % 3600))/3600;
+    let hours = (tripDuration - (tripDuration % 3600)) / 3600;
     return (
       <Modal
         size="lg"
@@ -20,20 +23,29 @@ class NewTripModal extends React.Component {
         show={this.props.show}
       >
         <Modal.Header >
-          <Modal.Title style={{alignText: 'center', margin: '0 auto'}} id="contained-modal-title-vcenter">
+          <Modal.Title style={{ alignText: 'center', margin: '0 auto' }} id="contained-modal-title-vcenter">
             {this.props.currentTrip.tripOrigin} - {this.props.currentTrip.tripDestination}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <h4 style={{textAlign: 'center'}}>Driving</h4>
-<ul> <u>Trip Information</u>
-    <li>One way drive time - {hours} hours {minutes} minutes</li>
-  <li>One way distance - {distanceMiles} miles</li>
-  <li>Gas Mileage - {gasMileage} mpg</li>
-  <li>Average Gas Price - {gasPrice}</li>
-  <li>Total Gas Cost One Way- ${((distanceMiles/+gasMileage) * gasPrice).toFixed(2)}</li>
-  <li>Total Gas Cost Round Trip- ${((distanceMiles/+gasMileage) * gasPrice).toFixed(2) * 2}</li>
-</ul>
+        <Modal.Body className='show-grid'>
+          <Container>
+            <Row>
+            <h4 style={{ textAlign: 'center' }}>Driving</h4>
+            <Col>
+              <ul className='tripInfo'> <u>Trip Information</u>
+                <li>One way drive time - {hours} hours {minutes} minutes</li>
+                <li>One way distance - {distanceMiles} miles</li>
+                <li>Gas Mileage - {gasMileage} mpg</li>
+                <li>Average Gas Price - {gasPrice}</li>
+                <li>Total Gas Cost One Way- ${((distanceMiles / +gasMileage) * gasPrice).toFixed(2)}</li>
+                <li>Total Gas Cost Round Trip- ${((distanceMiles / +gasMileage) * gasPrice).toFixed(2) * 2}</li>
+              </ul>
+            </Col>
+            <Col>
+            <img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.props.currentTrip.centerLat},${this.props.currentTrip.centerLon}&size=600x600&zoom=18&markers=icon:small-orange-cutout%7C${this.props.currentTrip.originLat},${this.props.currentTrip.originLon}%7C${this.props.currentTrip.destLat},${this.props.currentTrip.destLon}`} alt={`${this.props.currentTrip.tripOrigin} - ${this.props.currentTrip.tripDestination}`} />
+            </Col>
+            </Row>
+          </Container>
         </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={this.props.closeNewTripModal}>Close</Button>

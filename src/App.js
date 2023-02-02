@@ -25,6 +25,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getTrips();
+    console.log(process.env.REACT_APP_LOCATIONIQ_API_KEY)
   }
 
   closeNewTripModal = () => {
@@ -132,10 +133,12 @@ class App extends React.Component {
         }
         let response = await axios(config);
         console.log(response.data);
-        currentTrip.distance = response.data.distance;
-        currentTrip.duration = response.data.duration;
+        // currentTrip.distance = response.data.distance;
+        // currentTrip.duration = response.data.duration;
+        const tripWithLatLongs = {...currentTrip, ...response.data}
+        console.log(tripWithLatLongs)
         this.setState({
-          currentTrip: currentTrip,
+          currentTrip: tripWithLatLongs,
           receivedTripInfo: true
         })
       }
