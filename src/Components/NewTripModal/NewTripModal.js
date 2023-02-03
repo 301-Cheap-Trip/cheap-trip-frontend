@@ -42,7 +42,7 @@ class NewTripModal extends React.Component {
               </ul>
             </Col>
             <Col>
-            <img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.props.currentTrip.centerLat},${this.props.currentTrip.centerLon}&size=600x600&zoom=18&markers=icon:small-orange-cutout%7C${this.props.currentTrip.originLat},${this.props.currentTrip.originLon}%7C${this.props.currentTrip.destLat},${this.props.currentTrip.destLon}`} alt={`${this.props.currentTrip.tripOrigin} - ${this.props.currentTrip.tripDestination}`} />
+            <img src={this.props.currentTrip.imageURL} alt={`${this.props.currentTrip.tripOrigin} to ${this.props.currentTrip.tripDestination}`} />
             </Col>
             </Row>
           </Container>

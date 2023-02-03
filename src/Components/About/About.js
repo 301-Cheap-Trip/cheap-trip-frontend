@@ -56,7 +56,7 @@ class Profile extends Component {
           <Card.Body>
             <Card.Title>Marcus Bynoe</Card.Title>
             <Card.Text className="card-text">
-              Marcus Bynoe: Id veniam dolor incididunt culpa velit excepteur proident minim cupidatat. Cillum proident quis est cillum cillum fugiat proident nisi officia voluptate quis laboris. Nostrud nostrud cillum dolor fugiat ea do occaecat ex adipisicing ex incididunt excepteur. Eiusmod excepteur cupidatat aute eiusmod minim sit. Irure occaecat amet fugiat aliqua do. Deserunt dolor dolor officia in minim labore sunt et sunt consectetur mollit ut.
+              Veteran with a background in logistics and a passion for video games & technology. After working in logistics, I've decided to take the opportunity to switch carrers into an industry I've always had an interest in. I'm always looking up and reading about new technology and would love to be "in the know" by working on new tech.
             </Card.Text>
             <Card.Link href="https://github.com/marcusbynoe"><i className="icons-link fa-brands fa-github"></i></Card.Link>
             <Card.Link href="https://www.linkedin.com/in/marcusbynoe"><i class="icons-link fa-brands fa-linkedin"></i></Card.Link>
