@@ -65,3 +65,7 @@ h2 {
 .spacer{
   margin-right: 13px;
 }
+
+.map-img {
+  opacity: .9;
+}

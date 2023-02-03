@@ -11,11 +11,11 @@ class UpdateTripModal extends React.Component {
         aria-labelledby="contained-modal-title-vcenter"
         centered
         show={this.props.show}
-        style={{backgroundColor: '#13131370'}}
+        style={{ backgroundColor: '#13131390' }}
       >
+        <Modal.Header style={{ backgroundColor: 'cadetblue', borderBottom: 'none' }}><h2 style={{ margin: '0 auto', textAlign: 'center' }}>Change Trip Details</h2></Modal.Header>
+        <Modal.Body style={{ backgroundColor: 'cadetblue', borderBottom: 'none', padding: '0' }}>
 
-        <Modal.Body style={{backgroundColor: 'cadetblue', border: 'solid 2px #0B2827', borderBottom: 'none', padding: '0'}}>
-            <h2 style={{margin: '15px auto', textAlign: 'center',}}>Change Trip Details</h2>
           <form className='UpdateTripForm' onSubmit={(event) => this.props.handleUpdate(event, this.props.trip._id, this.props.trip)} >
             <label htmlFor="trip-mileage">Vehicle Highway Mileage</label>
             <input type='text' id='trip-mileage' placeholder='Mileage in miles per gallon' defaultValue={this.props.trip.gasMileage} name='gasMileage' required />
@@ -28,8 +28,8 @@ class UpdateTripModal extends React.Component {
           </form>
 
         </Modal.Body>
-        <Modal.Footer style={{backgroundColor: 'cadetblue', border: 'solid 2px #0B2827', borderTop: 'none', marginTop: '0'}} >
-          <Button style={{marginTop: '0'}} variant='secondary' onClick={this.props.closeUpdateModal}>Close</Button>
+        <Modal.Footer style={{ backgroundColor: 'cadetblue', borderTop: 'none', marginTop: '0' }} >
+          <Button style={{ marginTop: '0' }} variant='secondary' onClick={this.props.closeUpdateModal}>Close</Button>
           {/* <Button variant='success' onClick={this.props.handleSaveTrip}>Save this Trip</Button> */}
         </Modal.Footer>
       </Modal>

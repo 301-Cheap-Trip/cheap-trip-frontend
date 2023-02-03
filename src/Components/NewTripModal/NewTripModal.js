@@ -41,7 +41,7 @@ class NewTripModal extends React.Component {
               </ul>
             </Col>
             <Col style={{paddingRight: '2.6em'}}>
-            <img src={this.props.currentTrip.imageURL} alt={`${this.props.currentTrip.tripOrigin} to ${this.props.currentTrip.tripDestination}`} />
+            <img src={this.props.currentTrip.imageURL} alt={`${this.props.currentTrip.tripOrigin} to ${this.props.currentTrip.tripDestination}`} className="map-img"/>
             </Col>
             </Row>
           </Container>
