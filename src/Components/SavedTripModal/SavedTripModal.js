@@ -20,6 +20,7 @@ class SavedTripModal extends React.Component {
       aria-labelledby="contained-modal-title-vcenter"
       centered
       show={this.props.show}
+      style={{backgroundColor: '#13131370'}}
     >
       <Modal.Header style={{backgroundColor: '#0B2827', color: '#d9d9d9', borderBottom: 'none', fontFamily: 'righteous'}}>
         <Modal.Title style={{ alignText: 'center', margin: '0 auto', fontSize: '2rem' }} id="contained-modal-title-vcenter">
