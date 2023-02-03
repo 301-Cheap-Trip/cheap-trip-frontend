@@ -1,20 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 .App {
-  /* text-align: center; */
-  margin: 0;
+  text-align: center;
+  margin: 0 auto;
   font-family: 'Righteous', cursive;
 }
 
 body {
   background: url('./map-background.jpg');
-  /* opacity: .7; */
 }
 
 
 .welcome {
   position: relative
-    /* display: flex; */
 }
 
 .welcome h1 {
@@ -40,14 +38,12 @@ body {
 
 .welcome button {
   margin-top: 21rem;
-  margin-left: 28rem;
+  margin-right: 20%;
   font-size: 1.5rem;
   background-color: cadetblue;
   color: #0B2827;
   border-radius: 25px;
   transition: all .3s ease;
-  /* transform: scale(1); */
-  box-shadow: 0px 1px 0px 0px;
 
 }
 
