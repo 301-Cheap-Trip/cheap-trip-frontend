@@ -1,0 +1,18 @@
+.UpdateTripForm {
+  width: 100%;
+  background-color: inherit;
+  color: black;
+}
+
+.submitButton {
+  border-radius: 10px;
+  background-color: rgba(200, 187, 90, 0.7);
+  padding: .25em 1em;
+  color: black;
+  transition: .5s;
+  border: 2px black solid;
+}
+
+.submitButton:hover {
+  background-color: hsla(200, 25%, 50%, 1);
+}
