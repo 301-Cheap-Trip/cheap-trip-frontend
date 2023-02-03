@@ -6,6 +6,12 @@ import StateSelect from "../StateSelect/StateSelect";
 import CarSelectMenu from "../CarSelectMenu/CarSelectMenu";
 
 class NewTripForm extends React.Component {
+
+  handleGasMileage = (gasMileage) => {
+    let mpgForm = document.querySelector('#gas-mileage')
+    mpgForm.value = gasMileage;
+  }
+
   render() {
     return (
       <>
@@ -22,7 +28,7 @@ class NewTripForm extends React.Component {
                   <input type='text' id='trip-origin' placeholder='Better' name="tripDestination" required />
                   <StateSelect name='tripDestinationState' />
                   <label htmlFor="trip-origin">Vehicle Highway Mileage</label>
-                  <input type='text' id='trip-origin' placeholder='Mileage in miles per galon' defaultValue={25} name='gasMileage' required />
+                  <input type='text' id='gas-mileage' placeholder='Mileage in miles per gallon' defaultValue={this.props.userCarGasMileage} name='gasMileage' required />
                   <button>Calculate Trip</button>
                 </form>
                 <NewTripModal
@@ -37,7 +43,7 @@ class NewTripForm extends React.Component {
                  <div className="carSelectBox">
         <h4>Don't know your gas mileage?</h4>
         <p>Look it up here</p>
-        <CarSelectMenu/>
+        <CarSelectMenu handleGasMileage={this.handleGasMileage} appHandleGasMileage = {this.props.handleGasMileage} />
       </div>
                  
                  
