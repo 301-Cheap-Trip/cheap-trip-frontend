@@ -16,20 +16,19 @@ class SavedTripModal extends React.Component {
     let hours = (tripDuration - (tripDuration % 3600)) / 3600;
     return (
       <Modal
-      size="lg"
+      size="xl"
       aria-labelledby="contained-modal-title-vcenter"
       centered
       show={this.props.show}
     >
-      <Modal.Header >
-        <Modal.Title style={{ alignText: 'center', margin: '0 auto' }} id="contained-modal-title-vcenter">
+      <Modal.Header style={{backgroundColor: '#0B2827', color: '#d9d9d9', borderBottom: 'none', fontFamily: 'righteous'}}>
+        <Modal.Title style={{ alignText: 'center', margin: '0 auto', fontSize: '2rem' }} id="contained-modal-title-vcenter">
           {this.props.currentTrip.tripOrigin} - {this.props.currentTrip.tripDestination}
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body className='show-grid'>
+      <Modal.Body className='show-grid' style={{backgroundColor: '#0B2827', color: '#D9D9D9'}}>
         <Container>
           <Row>
-          <h4 style={{ textAlign: 'center' }}>Driving</h4>
           <Col>
             <ul className='tripInfo'> <u>Trip Information</u>
               <li>One way drive time - {hours} hours {minutes} minutes</li>
@@ -41,12 +40,12 @@ class SavedTripModal extends React.Component {
             </ul>
           </Col>
           <Col>
-          <img src={this.props.currentTrip.imageURL} alt={`${this.props.currentTrip.tripOrigin} to ${this.props.currentTrip.tripDestination}`} />
+          <img src={this.props.currentTrip.imageURL} alt={`${this.props.currentTrip.tripOrigin} to ${this.props.currentTrip.tripDestination}`} className="map-img"/>
           </Col>
           </Row>
         </Container>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer style={{backgroundColor: '#0B2827', borderTop: 'none'}}>
         <Button variant='secondary' onClick={this.props.closeSavedTripModal}>Close</Button>
       </Modal.Footer>
     </Modal>
