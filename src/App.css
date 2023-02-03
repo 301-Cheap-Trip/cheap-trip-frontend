@@ -2,7 +2,7 @@
 
 .App {
   text-align: center;
-  margin: 0;
+  margin: 0 auto;
   font-family: 'Righteous', cursive;
 }
 
@@ -36,9 +36,9 @@ body {
 
 }
 
-.login-button {
+.welcome button {
   margin-top: 21rem;
-  margin-left: 28rem;
+  margin-right: 20%;
   font-size: 1.5rem;
   background-color: cadetblue;
   color: #0B2827;
@@ -47,7 +47,7 @@ body {
 
 }
 
-.login-button:hover {
+.welcome button:hover {
   transform: scale(1.1) ;
   box-shadow: 0px 2px 0px 0px;
 }
@@ -62,7 +62,7 @@ body {
     margin-left: 5rem;
    }
 
-   .login-button{
+   .welcome button{
     margin-top: 25rem;
     margin-left: 15rem;
    }
