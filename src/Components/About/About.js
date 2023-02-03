@@ -18,7 +18,7 @@ class Profile extends Component {
           <Card.Body>
             <Card.Title>Dominick Martin</Card.Title>
             <Card.Text className="card-text">
-               With a strong foundation in programming languages and experience working on projects in a team environment, Dominick is eager to bring his skills and enthusiasm to a new role as a software developer. He is confident in his ability to learn quickly and is dedicated to continuously improving his abilities to deliver high-quality software.
+               With a strong foundation in programming languages and experience working on projects in a team environment, Dominick is eager to bring his skills and enthusiasm to a new role as a software developer. He is confident in his ability to learn quickly and is dedicated to continuously improving his abilities to deliver high-quality software. -ChatGPT
             </Card.Text>
           </Card.Body>
           <Card.Body>
