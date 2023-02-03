@@ -1,7 +1,3 @@
-.NewTripForm {
-  /* background-color: #222; */
-}
-
 form {
   background-color: #14403D;
   display: flex;
@@ -31,3 +27,4 @@ h2 {
   margin: 5px;
   font-size: 2rem;
 }
+

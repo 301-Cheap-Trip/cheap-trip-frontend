@@ -5,16 +5,14 @@ const AuthProfile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) {
-    return <div>Loading ...</div>;
+    return <li>Loading ...</li>;
   }
 
   return (
     isAuthenticated && (
-      <div>
-        <img id="profile-img" src={user.picture} alt={user.name} />
-        <p>{user.name}</p>
-        {/* <p>{user.email}</p> */}
-      </div>
+
+      <p>Signed in as: {user.name}</p>
+
     )
   );
 };

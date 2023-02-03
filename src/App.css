@@ -1,8 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 .App {
-  text-align: center;
+  /* text-align: center; */
   margin: 0;
-  color: #bbb;
   font-family: 'Righteous', cursive;
 }
+
+body {
+  background: url('./map-background.jpg');
+  /* opacity: .7; */
+}
+
+
+.welcome {
+  position: relative
+    /* display: flex; */
+}
+
+.welcome h1 {
+  position: absolute;
+  margin-top: 8rem;
+  margin-left: 7rem;
+  font-size: 5rem;
+  color: #D9D9D9;
+  text-shadow: 3px 3px #d9d9d977;
+
+}
+
+.welcome h2 {
+  position: absolute;
+  margin-top: 15rem;
+  margin-left: 12rem;
+  color: #D9D9D9;
+  font-size: 3rem;
+  letter-spacing: .02px;
+  text-shadow: 1.5px 1.5px #d9d9d977;
+
+}
+
+.welcome button {
+  margin-top: 21rem;
+  margin-left: 28rem;
+  font-size: 1.5rem;
+  background-color: cadetblue;
+  color: #0B2827;
+  border-radius: 25px;
+  transition: all .3s ease;
+  /* transform: scale(1); */
+  box-shadow: 0px 1px 0px 0px;
+
+}
+
+.welcome button:hover {
+  transform: scale(1.1) ;
+  box-shadow: 0px 2px 0px 0px;
+}
+
+@media screen and (max-width: 1000px) {
+  .welcome h1 {
+     display: none;
+   }
+
+   .welcome h2{
+    margin-top: 10rem;
+    margin-left: 5rem;
+   }
+
+   .welcome button{
+    margin-top: 25rem;
+    margin-left: 15rem;
+   }
+ }
