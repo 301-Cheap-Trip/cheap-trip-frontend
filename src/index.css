@@ -1,13 +1,7 @@
 body {
-  background: url('./map-background.jpg');
   margin: 0;
 }
 
-html{
-  /* background-color: #222; */
+html {
   color: #bbb;
-}
-
-#root {
-  /* background-color: #222; */
 }

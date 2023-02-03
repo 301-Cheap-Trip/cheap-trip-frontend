@@ -3,6 +3,32 @@
 .App {
   text-align: center;
   margin: 0;
-  color: #bbb;
   font-family: 'Righteous', cursive;
+}
+
+body {
+  background: url('./map-background.jpg');
+  /* opacity: .7; */
+}
+
+img{
+  opacity: 1;
+}
+.welcome {
+  color: #D9D9D9;
+  position: relative
+  /* display: flex; */
+}
+
+.welcome h1  {
+  position: absolute;
+  margin-top: 8rem;
+  margin-left: 200px;
+  font-size: 5rem;
+}
+
+.welcome h2  {
+  position: absolute;
+  margin-top: 325px;
+  margin-left: 400px;
 }
