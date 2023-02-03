@@ -221,6 +221,7 @@ class App extends React.Component {
         <NavBar />
         <div className='App' >
           <Routes>
+
             <Route exact path='/' element={<NewTripForm
               handleSubmit={this.handleSubmit}
               currentTrip={this.state.currentTrip}
@@ -228,6 +229,8 @@ class App extends React.Component {
               closeNewTripModal={this.closeNewTripModal}
               gasPrice={this.state.gasPrice}
               handleSaveTrip={this.handleSaveTrip} />}> </Route>
+
+              
             <Route exact path='/about' element={<Profile />}> </Route>
             <Route exact path='/saved-trips' element={
               <SavedTripsPage

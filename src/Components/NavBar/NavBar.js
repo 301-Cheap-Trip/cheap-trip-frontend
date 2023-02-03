@@ -10,7 +10,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className="NavBar">
-        <h1>CHEAP TRIP</h1>
+        <h1><Link to="/" className="nav-link">CHEAP TRIP</Link></h1>
         <ul>
           <li><Link to="/" className="nav-link">Home</Link></li>
           <li><Link to="/about" className="nav-link">About</Link></li>
