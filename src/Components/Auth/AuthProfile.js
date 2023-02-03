@@ -5,7 +5,7 @@ const AuthProfile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) {
-    return <li>Loading ...</li>;
+    return <h1>Loading ...</h1>;
   }
 
   return (

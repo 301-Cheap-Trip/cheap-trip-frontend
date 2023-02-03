@@ -1,6 +1,6 @@
 .SavedTrip {
   height: 200px;
-  border: 1px solid white;
+  border: 2px solid #0B2827;
   width: 30%;
   background-color: cadetblue;
   text-align: center;
@@ -14,5 +14,4 @@
   flex-wrap: wrap;
   align-items: flex-end;
 }
-
 
