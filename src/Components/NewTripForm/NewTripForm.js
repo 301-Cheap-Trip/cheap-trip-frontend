@@ -3,6 +3,7 @@ import { withAuth0 } from "@auth0/auth0-react";
 import './NewTripForm.css';
 import NewTripModal from "../NewTripModal/NewTripModal";
 import StateSelect from "../StateSelect/StateSelect";
+import CarSelectMenu from "../CarSelectMenu/CarSelectMenu";
 
 class NewTripForm extends React.Component {
   render() {
@@ -31,8 +32,17 @@ class NewTripForm extends React.Component {
                   currentTrip={this.props.currentTrip}
                   gasPrice={this.props.gasPrice}
                   handleSaveTrip={this.props.handleSaveTrip}
-                />
+                 />
+                 
+                 <div className="carSelectBox">
+        <h4>Don't know your gas mileage?</h4>
+        <p>Look it up here</p>
+        <CarSelectMenu/>
+      </div>
+                 
+                 
               </div>
+              
             </>
             :
             <div className='welcome'>
@@ -41,6 +51,7 @@ class NewTripForm extends React.Component {
             </div>
         }
       </>
+
     )
   }
 }
