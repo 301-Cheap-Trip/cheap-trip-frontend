@@ -11,10 +11,10 @@ class UpdateTripModal extends React.Component {
         aria-labelledby="contained-modal-title-vcenter"
         centered
         show={this.props.show}
-        style={{ backgroundColor: '#13131390' }}
+        style={{ backgroundColor: '#13131390', fontFamily: 'righteous' }}
       >
         <Modal.Header style={{ backgroundColor: 'cadetblue', borderBottom: 'none' }}><h2 style={{ margin: '0 auto', textAlign: 'center' }}>Change Trip Details</h2></Modal.Header>
-        <Modal.Body style={{ backgroundColor: 'cadetblue', borderBottom: 'none', padding: '0' }}>
+        <Modal.Body style={{ backgroundColor: 'cadetblue', borderBottom: 'none', padding: '15px 0' }}>
 
           <form className='UpdateTripForm' onSubmit={(event) => this.props.handleUpdate(event, this.props.trip._id, this.props.trip)} >
             <label htmlFor="trip-mileage">Vehicle Highway Mileage</label>

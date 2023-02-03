@@ -12,6 +12,7 @@
   padding-bottom: 25px;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
 
 form input{
@@ -51,6 +52,8 @@ h2 {
   align-items: center;
   font-size: 1.3rem;
   transition: .5s;
+  border-radius: 10px;
+
 }
 
 .carSelectBox:hover {

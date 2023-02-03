@@ -5,7 +5,7 @@
   background-color: cadetblue;
   text-align: center;
   box-shadow: 10px 15px 50px 5px #131313;
-
+  border-radius: 10px;
 }
 
 .button-group {
@@ -17,6 +17,3 @@
   align-items: flex-end;
 }
 
-.map-img {
-  opacity: .9;
-}
