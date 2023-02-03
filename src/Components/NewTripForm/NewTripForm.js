@@ -4,6 +4,7 @@ import './NewTripForm.css';
 import NewTripModal from "../NewTripModal/NewTripModal";
 import StateSelect from "../StateSelect/StateSelect";
 import CarSelectMenu from "../CarSelectMenu/CarSelectMenu";
+import Login from '../Auth/Login';
 
 class NewTripForm extends React.Component {
   render() {
@@ -48,6 +49,7 @@ class NewTripForm extends React.Component {
             <div className='welcome'>
               <h1>Welcome to Cheap Trip!</h1>
               <h2>Sign up for free to start planning your trip! </h2>
+              <Login />
             </div>
         }
       </>
