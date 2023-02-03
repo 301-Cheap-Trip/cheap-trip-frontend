@@ -49,3 +49,7 @@ How and when will you escalate the conflict if your resolution attempts are unsu
 
 Attribution - 
 State Select options provided by https://www.freeformatter.com/usa-state-list-html-select.html
+Gas Prices originally sourced from - https://gasprices.aaa.com/state-gas-price-averages/
+Photos sourced from - https://unsplash.com/photos/xKFVBD4UAQA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+Favicon generated at - http://favicon.io/
+Favicon source image taken from - https://icons8.com/icon/8213/waypoint-map
