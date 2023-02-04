@@ -1,0 +1,19 @@
+.SavedTrip {
+  height: 200px;
+  border: 2px solid #0B2827;
+  width: 30%;
+  background-color: cadetblue;
+  text-align: center;
+  box-shadow: 10px 15px 50px 5px #131313;
+  border-radius: 10px;
+}
+
+.button-group {
+  margin: 0 auto;
+  display: flex;
+  height: 50%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+

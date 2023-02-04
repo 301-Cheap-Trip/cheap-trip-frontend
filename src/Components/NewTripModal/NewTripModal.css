@@ -1,0 +1,19 @@
+img {
+  width: 100%;
+}
+
+.tripInfo li{
+  width: 100%;
+}
+
+.tripInfo{
+  list-style-type: none;
+  height: 100%;
+  line-height: 2.8em;
+  font-size: 1.5rem;
+  font-family: 'righteous';
+}
+
+.infoHeader {
+  border-bottom: 2px white solid;
+}

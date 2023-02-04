@@ -1,38 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
 .App {
   text-align: center;
+  margin: 0 auto;
+  font-family: 'Righteous', cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: url('./map-background.jpg');
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.welcome {
+  position: relative
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.welcome h1 {
+  position: absolute;
+  margin-top: 8rem;
+  margin-left: 7rem;
+  font-size: 5rem;
+  color: #D9D9D9;
+  text-shadow: 3px 3px #d9d9d977;
+
 }
 
-.App-link {
-  color: #61dafb;
+.welcome h2 {
+  position: absolute;
+  margin-top: 15rem;
+  margin-left: 12rem;
+  color: #D9D9D9;
+  font-size: 3rem;
+  letter-spacing: .02px;
+  text-shadow: 1.5px 1.5px #d9d9d977;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.welcome button {
+  margin-top: 21rem;
+  margin-right: 20%;
+  font-size: 1.5rem;
+  background-color: cadetblue;
+  color: #0B2827;
+  border-radius: 25px;
+  transition: all .3s ease;
+
 }
+
+.welcome button:hover {
+  transform: scale(1.1) ;
+  box-shadow: 0px 2px 0px 0px;
+}
+
+@media screen and (max-width: 1000px) {
+  .welcome h1 {
+     display: none;
+   }
+
+   .welcome h2{
+    margin-top: 10rem;
+    margin-left: 5rem;
+   }
+
+   .welcome button{
+    margin-top: 25rem;
+    margin-left: 15rem;
+   }
+ }
